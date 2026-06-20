@@ -137,7 +137,7 @@ export default function AdminShell() {
   }
 
   return (
-    <div className="min-h-screen bg-[#09090B] flex flex-col md:flex-row">
+    <div className="min-h-screen bg-[#F4F4F5] flex flex-col md:flex-row">
       <OrderNotifications notifications={notifications} onDismiss={dismissNotification} />
 
       <AnimatePresence>
@@ -160,7 +160,7 @@ export default function AdminShell() {
         className="fixed left-0 top-0 bottom-0 z-40 w-64 flex flex-col md:hidden"
         style={{
           background: "rgba(12,12,14,0.98)",
-          borderRight: "1px solid rgba(63,63,70,0.4)",
+          borderRight: "1px solid rgba(212,212,216,0.4)",
           backdropFilter: "blur(20px)",
         }}
       >
@@ -178,7 +178,7 @@ export default function AdminShell() {
         className="hidden md:flex flex-col w-60 flex-shrink-0 sticky top-0 h-screen"
         style={{
           background: "rgba(12,12,14,0.98)",
-          borderRight: "1px solid rgba(63,63,70,0.4)",
+          borderRight: "1px solid rgba(212,212,216,0.4)",
         }}
       >
         <SidebarContent
@@ -193,21 +193,21 @@ export default function AdminShell() {
         <header
           className="md:hidden sticky top-0 z-20 flex items-center gap-3 px-4 py-3.5"
           style={{
-            background: "rgba(9,9,11,0.95)",
-            borderBottom: "1px solid rgba(63,63,70,0.4)",
+            background: "rgba(250,250,250,0.95)",
+            borderBottom: "1px solid rgba(212,212,216,0.4)",
             backdropFilter: "blur(12px)",
           }}
         >
           <button
             onClick={() => setSidebarOpen(true)}
             className="w-9 h-9 rounded-xl flex items-center justify-center text-[#71717A]"
-            style={{ background: "rgba(39,39,42,0.8)" }}
+            style={{ background: "rgba(228,228,231,0.8)" }}
           >
             <Menu className="w-4 h-4" />
           </button>
           <div className="flex items-center gap-1.5 flex-1">
             <Zap className="w-3.5 h-3.5 text-red-400" />
-            <span className="text-white font-bold text-sm tracking-tight">Thepoint Admin</span>
+            <span className="text-[#18181B] font-bold text-sm tracking-tight">Thepoint Admin</span>
           </div>
           {newCount > 0 && tab !== "orders" && (
             <motion.button
@@ -256,8 +256,8 @@ export default function AdminShell() {
         <nav
           className="md:hidden fixed bottom-0 left-0 right-0 flex items-center justify-around px-2 pb-safe pt-2"
           style={{
-            background: "rgba(9,9,11,0.97)",
-            borderTop: "1px solid rgba(63,63,70,0.4)",
+            background: "rgba(250,250,250,0.97)",
+            borderTop: "1px solid rgba(212,212,216,0.4)",
             backdropFilter: "blur(16px)",
           }}
         >
@@ -270,10 +270,10 @@ export default function AdminShell() {
                 key={item.id}
                 onClick={() => handleTabChange(item.id)}
                 className="relative flex flex-col items-center gap-1 px-3 py-2.5 rounded-xl transition-all duration-200"
-                style={{ background: isActive ? "rgba(37,99,235,0.12)" : "transparent" }}
+                style={{ background: isActive ? "rgba(220,38,38,0.12)" : "transparent" }}
               >
                 <div className="relative">
-                  <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-red-400" : "text-[#52525B]"}`} />
+                  <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-red-400" : "text-[#A1A1AA]"}`} />
                   {hasBadge && (
                     <span
                       className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full text-white text-[9px] font-bold flex items-center justify-center"
@@ -283,7 +283,7 @@ export default function AdminShell() {
                     </span>
                   )}
                 </div>
-                <span className={`text-[10px] font-semibold transition-colors ${isActive ? "text-red-400" : "text-[#52525B]"}`}>
+                <span className={`text-[10px] font-semibold transition-colors ${isActive ? "text-red-400" : "text-[#A1A1AA]"}`}>
                   {item.label}
                 </span>
               </button>
@@ -315,10 +315,10 @@ function SidebarContent({ tab, newCount, onTabChange, onLogout, showClose, onClo
             <Zap className="w-3.5 h-3.5 text-red-400" />
             <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
-          <h2 className="text-white font-bold text-base tracking-tight">Panel Admin</h2>
+          <h2 className="text-[#18181B] font-bold text-base tracking-tight">Panel Admin</h2>
         </div>
         {showClose && (
-          <button onClick={onClose} className="w-7 h-7 rounded-lg flex items-center justify-center text-[#71717A]" style={{ background: "rgba(39,39,42,0.8)" }}>
+          <button onClick={onClose} className="w-7 h-7 rounded-lg flex items-center justify-center text-[#71717A]" style={{ background: "rgba(228,228,231,0.8)" }}>
             <X className="w-4 h-4" />
           </button>
         )}
@@ -336,12 +336,12 @@ function SidebarContent({ tab, newCount, onTabChange, onLogout, showClose, onClo
               onClick={() => onTabChange(item.id)}
               className="relative flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-200 w-full"
               style={{
-                background: isActive ? "rgba(37,99,235,0.15)" : "transparent",
-                border: isActive ? "1px solid rgba(37,99,235,0.25)" : "1px solid transparent",
+                background: isActive ? "rgba(220,38,38,0.15)" : "transparent",
+                border: isActive ? "1px solid rgba(220,38,38,0.25)" : "1px solid transparent",
               }}
             >
-              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-red-400" : "text-[#52525B]"}`} />
-              <span className={`text-sm font-medium ${isActive ? "text-white" : "text-[#71717A]"}`}>{item.label}</span>
+              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-red-400" : "text-[#A1A1AA]"}`} />
+              <span className={`text-sm font-medium ${isActive ? "text-[#18181B]" : "text-[#71717A]"}`}>{item.label}</span>
               {hasBadge && (
                 <span
                   className="ml-auto w-5 h-5 rounded-full text-white text-[10px] font-bold flex items-center justify-center"
@@ -355,11 +355,11 @@ function SidebarContent({ tab, newCount, onTabChange, onLogout, showClose, onClo
         })}
       </nav>
 
-      <div className="pt-4 border-t border-[#27272A]">
+      <div className="pt-4 border-t border-[#E4E4E7]">
         <motion.button
           whileTap={{ scale: 0.98 }}
           onClick={onLogout}
-          className="flex items-center gap-3 px-3 py-3 rounded-xl w-full text-[#71717A] hover:text-white transition-colors duration-200"
+          className="flex items-center gap-3 px-3 py-3 rounded-xl w-full text-[#71717A] hover:text-[#18181B] transition-colors duration-200"
         >
           <LogOut className="w-4 h-4" />
           <span className="text-sm font-medium">Cerrar sesión</span>

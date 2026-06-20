@@ -43,7 +43,7 @@ export function OrderConfirmation({
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#09090B] flex flex-col items-center justify-start px-5 pt-16 pb-10"
+      className="min-h-screen bg-[#F4F4F5] flex flex-col items-center justify-start px-5 pt-16 pb-10"
     >
       <div className="w-full max-w-lg">
         <motion.div
@@ -56,9 +56,9 @@ export function OrderConfirmation({
             <div
               className="w-20 h-20 rounded-full flex items-center justify-center"
               style={{
-                background: "rgba(37, 99, 235, 0.12)",
-                border: "1px solid rgba(37, 99, 235, 0.3)",
-                boxShadow: "0 0 40px rgba(37, 99, 235, 0.25)",
+                background: "rgba(220,38,38, 0.12)",
+                border: "1px solid rgba(220,38,38, 0.3)",
+                boxShadow: "0 0 40px rgba(220,38,38, 0.25)",
               }}
             >
               <CheckCircle2 className="w-10 h-10 text-red-400" />
@@ -67,7 +67,7 @@ export function OrderConfirmation({
               animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0 rounded-full"
-              style={{ background: "rgba(37, 99, 235, 0.15)" }}
+              style={{ background: "rgba(220,38,38, 0.15)" }}
             />
           </div>
         </motion.div>
@@ -78,7 +78,7 @@ export function OrderConfirmation({
           transition={{ delay: 0.28 }}
           className="text-center mb-8"
         >
-          <h2 className="text-2xl font-bold text-white tracking-tight mb-2">¡Pedido listo!</h2>
+          <h2 className="text-2xl font-bold text-[#18181B] tracking-tight mb-2">¡Pedido listo!</h2>
           <p className="text-[#71717A] text-sm">Confirma enviándolo por WhatsApp</p>
         </motion.div>
 
@@ -88,8 +88,8 @@ export function OrderConfirmation({
           transition={{ delay: 0.36 }}
           className="rounded-2xl overflow-hidden mb-4"
           style={{
-            background: "rgba(24, 24, 27, 0.85)",
-            border: "1px solid rgba(63, 63, 70, 0.5)",
+            background: "rgba(244,244,245, 0.85)",
+            border: "1px solid rgba(212,212,216, 0.5)",
             boxShadow: "0 4px 24px rgba(0,0,0,0.35)",
           }}
         >
@@ -101,13 +101,13 @@ export function OrderConfirmation({
                   <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <div
                       className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-red-400 flex-shrink-0"
-                      style={{ background: "rgba(37,99,235,0.12)" }}
+                      style={{ background: "rgba(220,38,38,0.12)" }}
                     >
                       {item.quantity}
                     </div>
-                    <span className="text-[#D4D4D8] text-sm truncate">{item.name}</span>
+                    <span className="text-[#3F3F46] text-sm truncate">{item.name}</span>
                   </div>
-                  <span className="text-white font-semibold text-sm flex-shrink-0 ml-3">${item.price * item.quantity}</span>
+                  <span className="text-[#18181B] font-semibold text-sm flex-shrink-0 ml-3">${item.price * item.quantity}</span>
                 </div>
               ))}
             </div>
@@ -115,25 +115,25 @@ export function OrderConfirmation({
 
           <div
             className="px-5 py-4 flex items-center justify-between"
-            style={{ background: "rgba(37, 99, 235, 0.06)", borderTop: "1px solid rgba(37,99,235,0.15)" }}
+            style={{ background: "rgba(220,38,38, 0.06)", borderTop: "1px solid rgba(220,38,38,0.15)" }}
           >
-            <span className="text-[#A1A1AA] font-semibold text-sm">Total</span>
+            <span className="text-[#52525B] font-semibold text-sm">Total</span>
             <span className="text-red-400 font-black text-xl tracking-tight">${total} MXN</span>
           </div>
 
-          <div className="px-5 py-4 space-y-3 border-t border-[#27272A]">
+          <div className="px-5 py-4 space-y-3 border-t border-[#E4E4E7]">
             <div className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#52525B] mt-0.5 flex-shrink-0" />
+              <MapPin className="w-4 h-4 text-[#A1A1AA] mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-[#71717A] text-xs mb-0.5">Dirección de entrega</p>
-                <p className="text-[#D4D4D8] text-sm leading-snug">{address}</p>
+                <p className="text-[#3F3F46] text-sm leading-snug">{address}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <CreditCard className="w-4 h-4 text-[#52525B] flex-shrink-0" />
+              <CreditCard className="w-4 h-4 text-[#A1A1AA] flex-shrink-0" />
               <div>
                 <p className="text-[#71717A] text-xs mb-0.5">Método de pago</p>
-                <p className="text-[#D4D4D8] text-sm">Efectivo</p>
+                <p className="text-[#3F3F46] text-sm">Efectivo</p>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ export function OrderConfirmation({
               className="relative w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 disabled:cursor-not-allowed"
               style={{
                 background: sent
-                  ? "rgba(39, 39, 42, 0.8)"
+                  ? "rgba(228,228,231, 0.8)"
                   : "linear-gradient(135deg, #22C55E 0%, #16A34A 100%)",
                 boxShadow: sent
                   ? "none"
@@ -180,9 +180,9 @@ export function OrderConfirmation({
             onClick={onBackToHome}
             className="w-full py-4 px-6 rounded-2xl font-medium text-sm flex items-center justify-center gap-2 transition-all duration-200"
             style={{
-              background: "rgba(24, 24, 27, 0.8)",
-              border: "1px solid rgba(63, 63, 70, 0.5)",
-              color: "#A1A1AA",
+              background: "rgba(244,244,245, 0.8)",
+              border: "1px solid rgba(212,212,216, 0.5)",
+              color: "#52525B",
             }}
           >
             <Home className="w-4 h-4" />

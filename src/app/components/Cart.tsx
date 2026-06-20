@@ -28,14 +28,14 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#09090B] pb-36"
+      className="min-h-screen bg-[#F4F4F5] pb-36"
     >
       <div className="px-5 pt-12 pb-4 max-w-lg mx-auto">
         <motion.button
           whileHover={{ x: -3 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
-          className="flex items-center gap-2 text-[#71717A] hover:text-white transition-colors duration-200 mb-8"
+          className="flex items-center gap-2 text-[#71717A] hover:text-[#18181B] transition-colors duration-200 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Volver</span>
@@ -47,7 +47,7 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <h2 className="text-2xl font-bold text-white tracking-tight">Tu Carrito</h2>
+          <h2 className="text-2xl font-bold text-[#18181B] tracking-tight">Tu Carrito</h2>
           <p className="text-[#71717A] text-sm mt-1">
             {cartItems.length} {cartItems.length === 1 ? "producto" : "productos"}
           </p>
@@ -64,28 +64,28 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
                 transition={{ delay: index * 0.07, duration: 0.35 }}
                 className="rounded-2xl p-4 flex items-center justify-between"
                 style={{
-                  background: "rgba(24, 24, 27, 0.8)",
-                  border: "1px solid rgba(63, 63, 70, 0.5)",
+                  background: "rgba(244,244,245, 0.8)",
+                  border: "1px solid rgba(212,212,216, 0.5)",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
                 }}
               >
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(37, 99, 235, 0.12)", border: "1px solid rgba(37,99,235,0.2)" }}
+                    style={{ background: "rgba(220,38,38, 0.12)", border: "1px solid rgba(220,38,38,0.2)" }}
                   >
                     <ShoppingBag className="w-4 h-4 text-red-400" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-white font-semibold text-sm leading-snug truncate">{item.name}</p>
+                    <p className="text-[#18181B] font-semibold text-sm leading-snug truncate">{item.name}</p>
                     <p className="text-[#71717A] text-xs mt-0.5">
                       {item.quantity} × ${item.price}
                     </p>
                   </div>
                 </div>
                 <div className="text-right flex-shrink-0 ml-3">
-                  <p className="text-white font-bold text-base">${item.price * item.quantity}</p>
-                  <p className="text-[#52525B] text-xs">MXN</p>
+                  <p className="text-[#18181B] font-bold text-base">${item.price * item.quantity}</p>
+                  <p className="text-[#A1A1AA] text-xs">MXN</p>
                 </div>
               </motion.div>
             ))}
@@ -98,17 +98,17 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
           transition={{ delay: 0.25 }}
           className="rounded-2xl p-5 mb-6"
           style={{
-            background: "rgba(24, 24, 27, 0.9)",
-            border: "1px solid rgba(63, 63, 70, 0.5)",
+            background: "rgba(244,244,245, 0.9)",
+            border: "1px solid rgba(212,212,216, 0.5)",
             boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
           }}
         >
-          <div className="flex items-center justify-between py-2.5 border-b border-[#27272A]">
-            <span className="text-[#A1A1AA] text-sm">Subtotal</span>
-            <span className="text-white font-medium text-sm">${total}</span>
+          <div className="flex items-center justify-between py-2.5 border-b border-[#E4E4E7]">
+            <span className="text-[#52525B] text-sm">Subtotal</span>
+            <span className="text-[#18181B] font-medium text-sm">${total}</span>
           </div>
-          <div className="flex items-center justify-between py-2.5 border-b border-[#27272A]">
-            <span className="text-[#A1A1AA] text-sm">Método de pago</span>
+          <div className="flex items-center justify-between py-2.5 border-b border-[#E4E4E7]">
+            <span className="text-[#52525B] text-sm">Método de pago</span>
             <span
               className="text-xs font-semibold px-2.5 py-1 rounded-full text-green-400"
               style={{ background: "rgba(34, 197, 94, 0.1)", border: "1px solid rgba(34,197,94,0.2)" }}
@@ -117,14 +117,14 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
             </span>
           </div>
           <div className="flex items-center justify-between pt-4">
-            <span className="text-white font-bold text-base">Total</span>
+            <span className="text-[#18181B] font-bold text-base">Total</span>
             <span className="text-red-400 font-black text-2xl tracking-tight">${total}</span>
           </div>
         </motion.div>
       </div>
 
       <div className="fixed bottom-0 left-0 right-0 px-5 pb-8 pt-4"
-        style={{ background: "linear-gradient(to top, #09090B 70%, transparent)" }}>
+        style={{ background: "linear-gradient(to top, #F4F4F5 70%, transparent)" }}>
         <div className="max-w-lg mx-auto">
           <motion.button
             initial={{ opacity: 0, y: 16 }}
@@ -135,7 +135,7 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
             onClick={onContinue}
             disabled={cartItems.length === 0}
             className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-red disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
+            style={{ background: "linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)" }}
           >
             <MapPin className="w-4 h-4" />
             <span>Continuar a ubicación</span>
