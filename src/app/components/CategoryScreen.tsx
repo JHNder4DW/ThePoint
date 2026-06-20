@@ -44,7 +44,7 @@ export function CategoryScreen({
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#09090B] pb-36"
+      className="min-h-screen bg-[#2A2A2E] pb-36"
     >
       <div className="px-5 pt-12 pb-4 max-w-lg mx-auto">
         <motion.button
