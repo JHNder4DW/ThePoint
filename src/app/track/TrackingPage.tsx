@@ -129,14 +129,14 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
   const currentStep = getProgress(order.status);
 
   return (
-    <div className="min-h-screen bg-[#09090B] flex flex-col">
+    <div className="min-h-screen bg-[#F4F4F5] flex flex-col">
       {/* Fondo decorativo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           animate={{ opacity: [0.08, 0.16, 0.08] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(37,99,235,0.35) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(220,38,38,0.35) 0%, transparent 70%)" }}
         />
       </div>
 
@@ -147,11 +147,11 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
             <Zap className="w-3 h-3 text-red-400" />
             <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
-          <h1 className="text-white font-black text-xl tracking-tight">Seguimiento</h1>
+          <h1 className="text-[#18181B] font-black text-xl tracking-tight">Seguimiento</h1>
         </div>
         <div className="text-right">
-          <p className="text-[#52525B] text-xs">ID del pedido</p>
-          <p className="text-white font-bold font-mono text-sm">{order.id}</p>
+          <p className="text-[#A1A1AA] text-xs">ID del pedido</p>
+          <p className="text-[#18181B] font-bold font-mono text-sm">{order.id}</p>
         </div>
       </header>
 
@@ -166,17 +166,17 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               className="flex items-center gap-3 px-4 py-3.5 rounded-2xl"
-              style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.25)" }}
+              style={{ background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.25)" }}
             >
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "rgba(37,99,235,0.2)" }}
+                style={{ background: "rgba(220,38,38,0.2)" }}
               >
                 <Clock className="w-4 h-4 text-red-400" />
               </div>
               <div>
                 <p className="text-[#71717A] text-xs">Tiempo estimado</p>
-                <p className="text-white font-bold text-sm">{order.estimatedTime}</p>
+                <p className="text-[#18181B] font-bold text-sm">{order.estimatedTime}</p>
               </div>
             </motion.div>
           )}
@@ -191,17 +191,17 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
             style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.2)" }}
           >
             <XCircle className="w-14 h-14 text-red-400 mb-4" />
-            <h2 className="text-white font-bold text-xl mb-1">Pedido cancelado</h2>
+            <h2 className="text-[#18181B] font-bold text-xl mb-1">Pedido cancelado</h2>
             <p className="text-[#71717A] text-sm">Si tienes preguntas, contáctanos por WhatsApp.</p>
           </motion.div>
         ) : (
           /* Pasos de progreso */
           <div
             className="rounded-2xl overflow-hidden"
-            style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.4)" }}
+            style={{ background: "rgba(244,244,245,0.85)", border: "1px solid rgba(212,212,216,0.4)" }}
           >
-            <div className="px-5 py-4 border-b border-[#27272A]">
-              <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider">Estado del pedido</p>
+            <div className="px-5 py-4 border-b border-[#E4E4E7]">
+              <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider">Estado del pedido</p>
             </div>
             <div className="px-5 py-5 space-y-0">
               {STEPS.map((step, idx) => {
@@ -218,9 +218,9 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                             ? {
                                 scale: [1, 1.1, 1],
                                 boxShadow: [
-                                  "0 0 0px rgba(37,99,235,0)",
-                                  "0 0 16px rgba(37,99,235,0.5)",
-                                  "0 0 8px rgba(37,99,235,0.3)",
+                                  "0 0 0px rgba(220,38,38,0)",
+                                  "0 0 16px rgba(220,38,38,0.5)",
+                                  "0 0 8px rgba(220,38,38,0.3)",
                                 ],
                               }
                             : {}
@@ -231,25 +231,25 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                           background: isDone
                             ? "rgba(34,197,94,0.15)"
                             : isActive
-                            ? "rgba(37,99,235,0.2)"
-                            : "rgba(39,39,42,0.8)",
+                            ? "rgba(220,38,38,0.2)"
+                            : "rgba(228,228,231,0.8)",
                           border: isDone
                             ? "1px solid rgba(34,197,94,0.4)"
                             : isActive
-                            ? "1px solid rgba(37,99,235,0.5)"
-                            : "1px solid rgba(63,63,70,0.4)",
+                            ? "1px solid rgba(220,38,38,0.5)"
+                            : "1px solid rgba(212,212,216,0.4)",
                         }}
                       >
                         {isDone ? (
                           <CheckCircle2 className="w-4 h-4 text-green-400" />
                         ) : (
-                          <Icon className={`w-4 h-4 ${isActive ? "text-red-400" : "text-[#52525B]"}`} />
+                          <Icon className={`w-4 h-4 ${isActive ? "text-red-400" : "text-[#A1A1AA]"}`} />
                         )}
                       </motion.div>
                       {idx < STEPS.length - 1 && (
                         <div
                           className="w-0.5 flex-1 my-1 min-h-[24px] transition-all duration-700"
-                          style={{ background: isDone ? "rgba(34,197,94,0.4)" : "rgba(63,63,70,0.4)" }}
+                          style={{ background: isDone ? "rgba(34,197,94,0.4)" : "rgba(212,212,216,0.4)" }}
                         />
                       )}
                     </div>
@@ -257,7 +257,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                     <div className={`pb-5 flex-1 ${idx === STEPS.length - 1 ? "pb-1" : ""}`}>
                       <p
                         className="font-semibold text-sm transition-colors duration-300"
-                        style={{ color: isDone ? "#86EFAC" : isActive ? "#FFFFFF" : "#52525B" }}
+                        style={{ color: isDone ? "#86EFAC" : isActive ? "#18181B" : "#A1A1AA" }}
                       >
                         {step.label}
                       </p>
@@ -285,10 +285,10 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
         {/* Detalle del pedido */}
         <div
           className="rounded-2xl overflow-hidden"
-          style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.4)" }}
+          style={{ background: "rgba(244,244,245,0.85)", border: "1px solid rgba(212,212,216,0.4)" }}
         >
-          <div className="px-5 py-4 border-b border-[#27272A]">
-            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider">Tu pedido</p>
+          <div className="px-5 py-4 border-b border-[#E4E4E7]">
+            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider">Tu pedido</p>
           </div>
           <div className="px-5 py-4 space-y-2.5">
             {order.items.map((item, i) => (
@@ -296,17 +296,17 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                 <div className="flex items-center gap-2.5">
                   <span
                     className="w-5 h-5 rounded-md flex items-center justify-center text-red-400 font-bold text-xs flex-shrink-0"
-                    style={{ background: "rgba(37,99,235,0.12)" }}
+                    style={{ background: "rgba(220,38,38,0.12)" }}
                   >
                     {item.quantity}
                   </span>
-                  <span className="text-[#D4D4D8] text-sm">{item.name}</span>
+                  <span className="text-[#3F3F46] text-sm">{item.name}</span>
                 </div>
-                <span className="text-white font-semibold text-sm">${item.price * item.quantity}</span>
+                <span className="text-[#18181B] font-semibold text-sm">${item.price * item.quantity}</span>
               </div>
             ))}
-            <div className="pt-2.5 border-t border-[#27272A] flex justify-between">
-              <span className="text-white font-semibold text-sm">Total</span>
+            <div className="pt-2.5 border-t border-[#E4E4E7] flex justify-between">
+              <span className="text-[#18181B] font-semibold text-sm">Total</span>
               <span className="text-red-400 font-black text-sm">${order.total}</span>
             </div>
           </div>
@@ -319,7 +319,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
             transition={{ duration: 2, repeat: Infinity }}
             className="w-1.5 h-1.5 rounded-full bg-green-400"
           />
-          <p className="text-[#3F3F46] text-xs">Actualización en tiempo real</p>
+          <p className="text-[#D4D4D8] text-xs">Actualización en tiempo real</p>
         </div>
 
       </main>
@@ -332,7 +332,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
 // ─── Estados de carga / no encontrado ────────────────────────────────────────
 function LoadingState() {
   return (
-    <div className="min-h-screen bg-[#09090B] flex items-center justify-center">
+    <div className="min-h-screen bg-[#F4F4F5] flex items-center justify-center">
       <motion.div
         animate={{ opacity: [0.3, 0.8, 0.3] }}
         transition={{ duration: 1.5, repeat: Infinity }}
@@ -347,19 +347,19 @@ function LoadingState() {
 
 function NotFoundState({ orderId }: { orderId: string }) {
   return (
-    <div className="min-h-screen bg-[#09090B] flex flex-col items-center justify-center px-6 text-center">
+    <div className="min-h-screen bg-[#F4F4F5] flex flex-col items-center justify-center px-6 text-center">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto"
-          style={{ background: "rgba(39,39,42,0.8)", border: "1px solid rgba(63,63,70,0.5)" }}
+          style={{ background: "rgba(228,228,231,0.8)", border: "1px solid rgba(212,212,216,0.5)" }}
         >
-          <Package className="w-7 h-7 text-[#52525B]" />
+          <Package className="w-7 h-7 text-[#A1A1AA]" />
         </div>
         <div>
-          <h2 className="text-white font-bold text-xl">Pedido no encontrado</h2>
+          <h2 className="text-[#18181B] font-bold text-xl">Pedido no encontrado</h2>
           <p className="text-[#71717A] text-sm mt-2 max-w-xs mx-auto">
             No encontramos el pedido{" "}
-            <span className="text-white font-mono font-semibold">{orderId}</span>
+            <span className="text-[#18181B] font-mono font-semibold">{orderId}</span>
             {". "}Verifica que el enlace sea correcto.
           </p>
         </div>
