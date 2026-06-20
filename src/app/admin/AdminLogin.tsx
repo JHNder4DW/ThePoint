@@ -27,7 +27,7 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#09090B] flex items-center justify-center px-5">
+    <div className="min-h-screen bg-[#2A2A2E] flex items-center justify-center px-5">
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           animate={{ opacity: [0.12, 0.22, 0.12] }}
