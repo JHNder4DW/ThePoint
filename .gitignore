@@ -1,0 +1,13 @@
+# Ignore build artifacts
+/dist
+/dist/**
+
+# Node modules
+node_modules
+
+# Vite cache
+.vite
+
+# local env
+.env
+.env.local
