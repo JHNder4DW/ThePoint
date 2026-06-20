@@ -1,0 +1,31 @@
+.theme-red {
+  --background: #E5E5E5;
+  --foreground: #1F1F1F;
+  --card: #FFFFFF;
+  --card-foreground: #1F1F1F;
+  --popover: #FFFFFF;
+  --popover-foreground: #1F1F1F;
+  --primary: #DC2626;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EF4444;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F87171;
+  --muted-foreground: #FFFFFF;
+  --accent: #B91C1C;
+  --accent-foreground: #FFFFFF;
+  --destructive: #7F1D1D;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(220, 38, 38, 0.2);
+  --input: #FFFFFF;
+  --input-background: #FEE2E2;
+  --switch-background: #FCA5A5;
+  --ring: #DC2626;
+  --sidebar: #FFE5E5;
+  --sidebar-foreground: #7F1D1D;
+  --sidebar-primary: #DC2626;
+}
+
+/* small helper for red glow used in utilities */
+.glow-red {
+  box-shadow: 0 0 32px rgba(220, 38, 38, 0.45), 0 4px 20px rgba(0,0,0,0.08);
+}

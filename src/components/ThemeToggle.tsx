@@ -12,10 +12,9 @@ function setHtmlTheme(t: ThemeName) {
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<ThemeName>(() => {
     try {
-      // Default changed to "red" for the red-clean branch
-      return (localStorage.getItem(STORAGE_KEY) as ThemeName) || "red";
+      return (localStorage.getItem(STORAGE_KEY) as ThemeName) || "original";
     } catch {
-      return "red";
+      return "original";
     }
   });
 

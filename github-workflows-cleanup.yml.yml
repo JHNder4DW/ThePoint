@@ -1,0 +1,104 @@
+name: Repo cleanup and sync
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git user
+        run: |
+          git config user.name "repo-cleanup-bot"
+          git config user.email "actions@github.com"
+
+      - name: Create backup bundle (artifact)
+        run: |
+          git bundle create repo-backup.bundle --all
+          ls -lh repo-backup.bundle
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-backup
+          path: repo-backup.bundle
+
+      - name: Prepare clean branches
+        run: |
+          set -e
+          git fetch origin
+          if git rev-parse --verify origin/red-theme >/dev/null 2>&1; then
+            git checkout -B red-clean origin/red-theme
+          else
+            git checkout -B red-clean
+          fi
+          if git rev-parse --verify origin/main >/dev/null 2>&1; then
+            git checkout -B original-clean origin/main
+          else
+            git checkout -B original-clean
+          fi
+
+      - name: Set default theme to red on red-clean
+        run: |
+          git checkout red-clean
+          if [ -f src/components/ThemeToggle.tsx ]; then
+            sed -i 's/|| \"original\"/|| \"red\"/g' src/components/ThemeToggle.tsx || true
+            git add src/components/ThemeToggle.tsx
+            git commit -m "chore(red-clean): set default theme to red" || echo "no changes to commit"
+          else
+            echo "ThemeToggle.tsx not found; skipping"
+          fi
+
+      - name: Remove build artifacts on both branches
+        run: |
+          git checkout red-clean
+          git rm -f "ThePoint-main (1).zip" "zipFile.zip" -r dist || true
+          git commit -m "chore: remove build artifacts" || echo "no changes to commit"
+
+          git checkout original-clean
+          git rm -f "ThePoint-main (1).zip" "zipFile.zip" -r dist || true
+          git commit -m "chore: remove build artifacts" || echo "no changes to commit"
+
+      - name: Push clean branches (create/update)
+        env:
+          REPO_TOKEN: ${{ secrets.SECRETOUU }}
+        run: |
+          git remote set-url origin https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }}.git
+          git push origin red-clean
+          git push origin original-clean
+
+      - name: Force-replace remote branches (original-clean -> main, red-clean -> red-theme)
+        env:
+          REPO_TOKEN: ${{ secrets.SECRETOUU }}
+        run: |
+          git remote set-url origin https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }}.git
+          git push origin original-clean:refs/heads/main --force
+          git push origin red-clean:refs/heads/red-theme --force
+
+      - name: Delete unwanted remote branches (leave only main and red-theme)
+        env:
+          REPO_TOKEN: ${{ secrets.SECRETOUU }}
+        run: |
+          git remote set-url origin https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }}.git
+          git push origin --delete RR original-backup revert-6-vercel/install-vercel-speed-insights-irv6jp vercel/install-vercel-speed-insights-irv6jp || true
+          # remove helper branches
+          git push origin --delete original-clean red-clean || true
+
+      - name: List final remote branches
+        run: |
+          git ls-remote --heads origin | sed -n '1,200p'
+
+      - name: Upload cleanup log (repo-backup included earlier)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleanup-artifacts
+          path: |
+            repo-backup.bundle
