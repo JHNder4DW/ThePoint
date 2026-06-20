@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HomeScreen } from "./components/HomeScreen";
 import { ProductCatalog, Product } from "./components/ProductCatalog";
 import { Cart, AllItems } from "./components/Cart";
@@ -262,7 +261,6 @@ export default function App() {
         </AnimatePresence>
       </div>
       <Analytics />
-      <SpeedInsights />
     </>
   );
 }
