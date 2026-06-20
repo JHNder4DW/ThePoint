@@ -6,6 +6,15 @@ const path = window.location.pathname;
 const isAdmin = path.startsWith("/admin");
 const isTrack = path.startsWith("/track/");
 
+// Apply saved theme before boot so initial paint matches preference
+try {
+  const saved = localStorage.getItem("thepoint:theme");
+  if (saved === "red") document.documentElement.classList.add("theme-red");
+  else document.documentElement.classList.remove("theme-red");
+} catch (e) {
+  // ignore
+}
+
 async function boot() {
   const root = createRoot(document.getElementById("root")!);
 
