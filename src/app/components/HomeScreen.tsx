@@ -50,7 +50,7 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-[#09090B]"
+      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-[#2A2A2E]"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
