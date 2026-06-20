@@ -9,13 +9,13 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; 
   nuevo:       { label: "Nuevo",      color: "text-purple-400", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.3)", icon: Sparkles },
   confirmado:  { label: "Confirmado", color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: ThumbsUp },
   preparando:  { label: "Preparando", color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "en-camino": { label: "En camino",  color: "text-red-400",   bg: "rgba(220,38,38,0.1)",  border: "rgba(220,38,38,0.3)",  icon: Truck },
+  "en-camino": { label: "En camino",  color: "text-red-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
   entregado:   { label: "Entregado",  color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelado:   { label: "Cancelado",  color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
   // Estados legados (retrocompat con pedidos existentes)
   pending:      { label: "Recibido",  color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: Clock },
   preparing:    { label: "Preparando",color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "on-the-way": { label: "En camino", color: "text-red-400",   bg: "rgba(220,38,38,0.1)",  border: "rgba(220,38,38,0.3)",  icon: Truck },
+  "on-the-way": { label: "En camino", color: "text-red-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
   delivered:    { label: "Entregado", color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelled:    { label: "Cancelado", color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
 };
@@ -24,7 +24,7 @@ const NEW_STATUS_ORDER: OrderStatus[] = ["nuevo", "confirmado", "preparando", "e
 const ALL_FILTER_OPTIONS: (OrderStatus | "all")[] = ["all", ...NEW_STATUS_ORDER];
 
 const getConfig = (status: string) =>
-  STATUS_CONFIG[status] ?? { label: status, color: "text-[#71717A]", bg: "rgba(228,228,231,0.5)", border: "rgba(212,212,216,0.4)", icon: Clock };
+  STATUS_CONFIG[status] ?? { label: status, color: "text-[#71717A]", bg: "rgba(39,39,42,0.5)", border: "rgba(63,63,70,0.4)", icon: Clock };
 
 interface Props {
   orders: Order[];
@@ -92,7 +92,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
   return (
     <div className="p-5 max-w-2xl mx-auto">
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="mb-5">
-        <h2 className="text-xl font-bold text-[#18181B] tracking-tight">Pedidos</h2>
+        <h2 className="text-xl font-bold text-white tracking-tight">Pedidos</h2>
         <p className="text-[#71717A] text-sm mt-0.5">{orders.length} pedidos en total</p>
       </motion.div>
 
@@ -112,8 +112,8 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
               onClick={() => setFilterStatus(s === filterStatus ? "all" : s)}
               className="rounded-xl p-3 text-left transition-all duration-200"
               style={{
-                background: filterStatus === s ? cfg.bg : "rgba(244,244,245,0.6)",
-                border: filterStatus === s ? `1px solid ${cfg.border}` : "1px solid rgba(212,212,216,0.4)",
+                background: filterStatus === s ? cfg.bg : "rgba(24,24,27,0.6)",
+                border: filterStatus === s ? `1px solid ${cfg.border}` : "1px solid rgba(63,63,70,0.4)",
               }}
             >
               <p className={`text-lg font-black ${cfg.color}`}>{count}</p>
@@ -130,15 +130,15 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
         className="flex flex-col gap-3 mb-5"
       >
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A1A1AA]" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#52525B]" />
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Buscar pedido, dirección, producto..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl text-[#18181B] placeholder-[#A1A1AA] text-sm outline-none transition-all"
-            style={{ background: "rgba(244,244,245,0.9)", border: "1px solid rgba(212,212,216,0.5)" }}
-            onFocus={e => { e.target.style.border = "1px solid rgba(220,38,38,0.4)"; }}
-            onBlur={e => { e.target.style.border = "1px solid rgba(212,212,216,0.5)"; }}
+            className="w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-[#52525B] text-sm outline-none transition-all"
+            style={{ background: "rgba(24,24,27,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
+            onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
+            onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
           />
         </div>
 
@@ -149,9 +149,9 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
               onClick={() => setFilterStatus(status as OrderStatus | "all")}
               className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
               style={{
-                background: filterStatus === status ? "rgba(220,38,38,0.2)" : "rgba(228,228,231,0.8)",
-                border: filterStatus === status ? "1px solid rgba(220,38,38,0.4)" : "1px solid rgba(212,212,216,0.5)",
-                color: filterStatus === status ? "#FCA5A5" : "#71717A",
+                background: filterStatus === status ? "rgba(37,99,235,0.2)" : "rgba(39,39,42,0.8)",
+                border: filterStatus === status ? "1px solid rgba(37,99,235,0.4)" : "1px solid rgba(63,63,70,0.5)",
+                color: filterStatus === status ? "#93C5FD" : "#71717A",
               }}
             >
               {status === "all" ? "Todos" : getConfig(status).label}
@@ -162,8 +162,8 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
 
       {filtered.length === 0 ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
-          <Package className="w-10 h-10 text-[#D4D4D8] mx-auto mb-3" />
-          <p className="text-[#A1A1AA] text-sm">
+          <Package className="w-10 h-10 text-[#3F3F46] mx-auto mb-3" />
+          <p className="text-[#52525B] text-sm">
             {orders.length === 0 ? "Aún no hay pedidos" : "No se encontraron pedidos"}
           </p>
         </motion.div>
@@ -184,7 +184,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.04 }}
                   className="rounded-2xl overflow-hidden"
-                  style={{ background: "rgba(244,244,245,0.85)", border: `1px solid ${order.status === "nuevo" ? "rgba(168,85,247,0.3)" : "rgba(212,212,216,0.5)"}` }}
+                  style={{ background: "rgba(24,24,27,0.85)", border: `1px solid ${order.status === "nuevo" ? "rgba(168,85,247,0.3)" : "rgba(63,63,70,0.5)"}` }}
                 >
                   <button
                     className="w-full px-4 py-4 flex items-center gap-3 text-left"
@@ -196,7 +196,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-[#18181B] font-semibold text-sm">{order.id}</span>
+                        <span className="text-white font-semibold text-sm">{order.id}</span>
                         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${cfg.color}`} style={{ background: cfg.bg }}>
                           {cfg.label}
                         </span>
@@ -213,7 +213,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                       </p>
                     </div>
 
-                    <ChevronDown className={`w-4 h-4 text-[#A1A1AA] flex-shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 text-[#52525B] flex-shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
                   </button>
 
                   <AnimatePresence>
@@ -225,33 +225,33 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                         transition={{ duration: 0.22 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-4 pb-4 border-t border-[#E4E4E7] pt-4 space-y-4">
+                        <div className="px-4 pb-4 border-t border-[#27272A] pt-4 space-y-4">
 
                           <div>
-                            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider mb-2">Productos</p>
+                            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider mb-2">Productos</p>
                             <div className="space-y-1.5">
                               {order.items.map((item, i) => (
                                 <div key={i} className="flex justify-between text-sm">
-                                  <span className="text-[#3F3F46]">{item.name} ×{item.quantity}</span>
-                                  <span className="text-[#18181B] font-medium">${item.price * item.quantity}</span>
+                                  <span className="text-[#D4D4D8]">{item.name} ×{item.quantity}</span>
+                                  <span className="text-white font-medium">${item.price * item.quantity}</span>
                                 </div>
                               ))}
-                              <div className="flex justify-between text-sm pt-1.5 border-t border-[#E4E4E7] mt-1.5">
-                                <span className="text-[#18181B] font-semibold">Total</span>
+                              <div className="flex justify-between text-sm pt-1.5 border-t border-[#27272A] mt-1.5">
+                                <span className="text-white font-semibold">Total</span>
                                 <span className="text-red-400 font-bold">${order.total}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider mb-1.5">Dirección del cliente</p>
-                            <p className="text-[#3F3F46] text-sm leading-relaxed whitespace-pre-wrap break-all">{order.address}</p>
+                            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider mb-1.5">Dirección del cliente</p>
+                            <p className="text-[#D4D4D8] text-sm leading-relaxed whitespace-pre-wrap break-all">{order.address}</p>
                             {mapsUrl && (
                               <a
                                 href={mapsUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-red-400 hover:text-red-300 transition-colors"
+                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-red-400 hover:text-blue-300 transition-colors"
                               >
                                 <MapPin className="w-3 h-3" />
                                 Abrir en Google Maps
@@ -261,7 +261,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                           </div>
 
                           <div>
-                            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider mb-2">
+                            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider mb-2">
                               Tiempo estimado de entrega
                             </p>
                             <div className="flex gap-2">
@@ -269,17 +269,17 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                 value={etaVal}
                                 onChange={e => setEtaInputs(prev => ({ ...prev, [order.id]: e.target.value }))}
                                 placeholder="Ej: 20-30 min, 45 min..."
-                                className="flex-1 px-3 py-2.5 rounded-xl text-[#18181B] text-sm outline-none placeholder-[#A1A1AA]"
-                                style={{ background: "rgba(250,250,250,0.9)", border: "1px solid rgba(212,212,216,0.5)" }}
-                                onFocus={e => { e.target.style.border = "1px solid rgba(220,38,38,0.4)"; }}
-                                onBlur={e => { e.target.style.border = "1px solid rgba(212,212,216,0.5)"; }}
+                                className="flex-1 px-3 py-2.5 rounded-xl text-white text-sm outline-none placeholder-[#52525B]"
+                                style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
+                                onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
+                                onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
                               />
                               <motion.button
                                 whileTap={{ scale: 0.96 }}
                                 onClick={() => handleSaveEta(order.id)}
                                 disabled={saving[order.id + "eta"]}
                                 className="px-4 py-2.5 rounded-xl text-white text-xs font-semibold flex-shrink-0 transition-all disabled:opacity-60"
-                                style={{ background: "linear-gradient(135deg, #DC2626, #B91C1C)" }}
+                                style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
                               >
                                 {saving[order.id + "eta"] ? "..." : "Guardar"}
                               </motion.button>
@@ -287,7 +287,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                           </div>
 
                           <div>
-                            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider mb-2">Cambiar estado</p>
+                            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider mb-2">Cambiar estado</p>
                             <div className="grid grid-cols-2 gap-2">
                               {NEW_STATUS_ORDER.map(status => {
                                 const sc = getConfig(status);
@@ -301,11 +301,11 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                     disabled={saving[order.id + status]}
                                     className="py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all duration-200 disabled:opacity-60"
                                     style={{
-                                      background: isActive ? sc.bg : "rgba(228,228,231,0.6)",
-                                      border: isActive ? `1px solid ${sc.border}` : "1px solid rgba(212,212,216,0.4)",
+                                      background: isActive ? sc.bg : "rgba(39,39,42,0.6)",
+                                      border: isActive ? `1px solid ${sc.border}` : "1px solid rgba(63,63,70,0.4)",
                                     }}
                                   >
-                                    <Ic className={`w-3.5 h-3.5 ${isActive ? sc.color : "text-[#A1A1AA]"}`} />
+                                    <Ic className={`w-3.5 h-3.5 ${isActive ? sc.color : "text-[#52525B]"}`} />
                                     <span className={isActive ? sc.color : "text-[#71717A]"}>{sc.label}</span>
                                   </motion.button>
                                 );
@@ -314,12 +314,12 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                           </div>
 
                           <div>
-                            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-wider mb-1.5">Enlace de seguimiento</p>
-                            <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl" style={{ background: "rgba(250,250,250,0.8)", border: "1px solid rgba(212,212,216,0.4)" }}>
+                            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-wider mb-1.5">Enlace de seguimiento</p>
+                            <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl" style={{ background: "rgba(9,9,11,0.8)", border: "1px solid rgba(63,63,70,0.4)" }}>
                               <span className="text-[#71717A] text-xs font-mono flex-1 truncate">{trackingUrl(order.id)}</span>
                               <button
                                 onClick={() => navigator.clipboard?.writeText(trackingUrl(order.id))}
-                                className="text-red-400 text-xs font-semibold hover:text-red-300 transition-colors flex-shrink-0"
+                                className="text-red-400 text-xs font-semibold hover:text-blue-300 transition-colors flex-shrink-0"
                               >
                                 Copiar
                               </button>
