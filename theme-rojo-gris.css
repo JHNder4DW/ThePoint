@@ -1,0 +1,20 @@
+
+:root {
+  --background: #2B2B2B;
+  --foreground: #FFFFFF;
+  --card: #3A3A3A;
+  --primary: #DC2626;
+  --secondary: #B91C1C;
+  --accent: #EF4444;
+  --border: rgba(220,38,38,.30);
+  --ring: #DC2626;
+}
+
+body {
+  background: #2B2B2B;
+  color: #FFFFFF;
+}
+
+.glow-red {
+  box-shadow: 0 0 32px rgba(220,38,38,.5);
+}
