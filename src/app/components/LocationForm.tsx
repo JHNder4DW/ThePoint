@@ -181,7 +181,7 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
           whileTap={{ scale: 0.98 }}
           onClick={handleContinue}
           disabled={!address.trim()}
-          className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-blue disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
+          className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-red disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
           style={{
             background: address.trim()
               ? "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)"

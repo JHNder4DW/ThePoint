@@ -64,19 +64,19 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
           className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
           style={{ background: "rgba(37,99,235,0.2)", border: "1px solid rgba(37,99,235,0.4)" }}
         >
-          <ShoppingBag className="w-4 h-4 text-blue-400" />
+          <ShoppingBag className="w-4 h-4 text-red-400" />
         </motion.div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <div className="flex items-center gap-1">
-              <Zap className="w-2.5 h-2.5 text-blue-400" />
-              <span className="text-blue-400 text-[10px] font-semibold tracking-widest uppercase">Nuevo pedido</span>
+              <Zap className="w-2.5 h-2.5 text-red-400" />
+              <span className="text-red-400 text-[10px] font-semibold tracking-widest uppercase">Nuevo pedido</span>
             </div>
             <motion.span
               animate={{ opacity: [1, 0.4, 1] }}
               transition={{ duration: 1.5, repeat: 3 }}
-              className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"
+              className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"
             />
           </div>
 
@@ -94,7 +94,7 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
           </div>
 
           <div className="mt-2 flex items-center justify-between">
-            <span className="text-blue-400 font-bold text-sm">${order.total}</span>
+            <span className="text-red-400 font-bold text-sm">${order.total}</span>
             <span className="text-[#52525B] text-[10px]">
               {new Date(order.createdAt).toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" })}
             </span>

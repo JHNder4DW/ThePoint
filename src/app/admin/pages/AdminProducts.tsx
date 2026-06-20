@@ -121,7 +121,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
             {product.image ? (
               <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             ) : product.isCategory ? (
-              <Tag className="w-5 h-5 text-blue-400" />
+              <Tag className="w-5 h-5 text-red-400" />
             ) : (
               <Package2 className="w-5 h-5 text-[#52525B]" />
             )}
@@ -169,7 +169,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 <div className="flex items-center gap-2 flex-wrap">
                   {product.isCategory && (
                     <span
-                      className="text-xs font-semibold px-1.5 py-0.5 rounded text-blue-400"
+                      className="text-xs font-semibold px-1.5 py-0.5 rounded text-red-400"
                       style={{ background: "rgba(37,99,235,0.1)" }}
                     >
                       <Tag className="w-2.5 h-2.5 inline mr-0.5" />Cat
@@ -195,7 +195,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 </div>
                 {!product.isCategory && (
                   <div className="flex items-center gap-3 mt-0.5">
-                    <p className="text-blue-400 font-bold text-base">${product.price}</p>
+                    <p className="text-red-400 font-bold text-base">${product.price}</p>
                     {product.isPromo && product.promoPrice > 0 && (
                       <p className="text-yellow-400 font-bold text-sm">
                         Promo: ${product.promoPrice}

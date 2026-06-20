@@ -61,7 +61,7 @@ export function OrderConfirmation({
                 boxShadow: "0 0 40px rgba(37, 99, 235, 0.25)",
               }}
             >
-              <CheckCircle2 className="w-10 h-10 text-blue-400" />
+              <CheckCircle2 className="w-10 h-10 text-red-400" />
             </div>
             <motion.div
               animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
@@ -100,7 +100,7 @@ export function OrderConfirmation({
                 <div key={item.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <div
-                      className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-blue-400 flex-shrink-0"
+                      className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-red-400 flex-shrink-0"
                       style={{ background: "rgba(37,99,235,0.12)" }}
                     >
                       {item.quantity}
@@ -118,7 +118,7 @@ export function OrderConfirmation({
             style={{ background: "rgba(37, 99, 235, 0.06)", borderTop: "1px solid rgba(37,99,235,0.15)" }}
           >
             <span className="text-[#A1A1AA] font-semibold text-sm">Total</span>
-            <span className="text-blue-400 font-black text-xl tracking-tight">${total} MXN</span>
+            <span className="text-red-400 font-black text-xl tracking-tight">${total} MXN</span>
           </div>
 
           <div className="px-5 py-4 space-y-3 border-t border-[#27272A]">

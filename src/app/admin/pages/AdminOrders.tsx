@@ -9,13 +9,13 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; 
   nuevo:       { label: "Nuevo",      color: "text-purple-400", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.3)", icon: Sparkles },
   confirmado:  { label: "Confirmado", color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: ThumbsUp },
   preparando:  { label: "Preparando", color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "en-camino": { label: "En camino",  color: "text-blue-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
+  "en-camino": { label: "En camino",  color: "text-red-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
   entregado:   { label: "Entregado",  color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelado:   { label: "Cancelado",  color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
   // Estados legados (retrocompat con pedidos existentes)
   pending:      { label: "Recibido",  color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: Clock },
   preparing:    { label: "Preparando",color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "on-the-way": { label: "En camino", color: "text-blue-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
+  "on-the-way": { label: "En camino", color: "text-red-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
   delivered:    { label: "Entregado", color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelled:    { label: "Cancelado", color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
 };
@@ -238,7 +238,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                               ))}
                               <div className="flex justify-between text-sm pt-1.5 border-t border-[#27272A] mt-1.5">
                                 <span className="text-white font-semibold">Total</span>
-                                <span className="text-blue-400 font-bold">${order.total}</span>
+                                <span className="text-red-400 font-bold">${order.total}</span>
                               </div>
                             </div>
                           </div>
@@ -251,7 +251,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                 href={mapsUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-red-400 hover:text-blue-300 transition-colors"
                               >
                                 <MapPin className="w-3 h-3" />
                                 Abrir en Google Maps
@@ -319,7 +319,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                               <span className="text-[#71717A] text-xs font-mono flex-1 truncate">{trackingUrl(order.id)}</span>
                               <button
                                 onClick={() => navigator.clipboard?.writeText(trackingUrl(order.id))}
-                                className="text-blue-400 text-xs font-semibold hover:text-blue-300 transition-colors flex-shrink-0"
+                                className="text-red-400 text-xs font-semibold hover:text-blue-300 transition-colors flex-shrink-0"
                               >
                                 Copiar
                               </button>
