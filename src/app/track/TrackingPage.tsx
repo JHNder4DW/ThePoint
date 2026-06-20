@@ -129,7 +129,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
   const currentStep = getProgress(order.status);
 
   return (
-    <div className="min-h-screen bg-[#09090B] flex flex-col">
+    <div className="min-h-screen bg-[#2A2A2E] flex flex-col">
       {/* Fondo decorativo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -332,7 +332,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
 // ─── Estados de carga / no encontrado ────────────────────────────────────────
 function LoadingState() {
   return (
-    <div className="min-h-screen bg-[#09090B] flex items-center justify-center">
+    <div className="min-h-screen bg-[#2A2A2E] flex items-center justify-center">
       <motion.div
         animate={{ opacity: [0.3, 0.8, 0.3] }}
         transition={{ duration: 1.5, repeat: Infinity }}
@@ -347,7 +347,7 @@ function LoadingState() {
 
 function NotFoundState({ orderId }: { orderId: string }) {
   return (
-    <div className="min-h-screen bg-[#09090B] flex flex-col items-center justify-center px-6 text-center">
+    <div className="min-h-screen bg-[#2A2A2E] flex flex-col items-center justify-center px-6 text-center">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto"
