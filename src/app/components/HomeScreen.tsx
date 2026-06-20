@@ -50,25 +50,25 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-[#09090B]"
+      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-[#F4F4F5]"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(220,38,38,0.3) 0%, transparent 70%)" }}
         />
         <motion.div
           animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.15, 0.08] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(220,38,38,0.25) 0%, transparent 70%)" }}
         />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(24,24,27,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(24,24,27,0.8) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -81,8 +81,8 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
           transition={{ delay: 0.15, duration: 0.5 }}
           className="mb-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full"
           style={{
-            background: "rgba(37, 99, 235, 0.1)",
-            border: "1px solid rgba(37, 99, 235, 0.25)",
+            background: "rgba(220,38,38, 0.1)",
+            border: "1px solid rgba(220,38,38, 0.25)",
           }}
         >
           <Zap className="w-3 h-3 text-red-400" />
@@ -102,8 +102,8 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
             className="font-black tracking-tight leading-none"
             style={{ fontSize: "clamp(3.5rem, 16vw, 5.5rem)", letterSpacing: "-0.03em" }}
           >
-            <span className="text-white">The</span>
-            <span style={{ color: "#2563EB" }}>point</span>
+            <span className="text-[#18181B]">The</span>
+            <span style={{ color: "#DC2626" }}>point</span>
           </h1>
         </motion.div>
 
@@ -117,8 +117,8 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
               className="w-full mb-6 rounded-2xl overflow-hidden relative"
               style={{
-                background: "linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(9,9,11,0.95) 100%)",
-                border: "1px solid rgba(37,99,235,0.3)",
+                background: "linear-gradient(135deg, rgba(220,38,38,0.12) 0%, rgba(250,250,250,0.95) 100%)",
+                border: "1px solid rgba(220,38,38,0.3)",
               }}
             >
               {banner.imageUrl && (
@@ -128,10 +128,10 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
               )}
               <div className="relative p-5 text-left">
                 {banner.title && (
-                  <p className="text-white font-bold text-base leading-tight">{banner.title}</p>
+                  <p className="text-[#18181B] font-bold text-base leading-tight">{banner.title}</p>
                 )}
                 {banner.subtitle && (
-                  <p className="text-[#A1A1AA] text-sm mt-1">{banner.subtitle}</p>
+                  <p className="text-[#52525B] text-sm mt-1">{banner.subtitle}</p>
                 )}
               </div>
             </motion.div>
@@ -146,11 +146,11 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
           whileTap={{ scale: 0.97 }}
           onClick={handleButtonClick}
           className="w-full relative py-5 px-8 rounded-2xl text-white font-semibold text-lg flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 glow-red glow-red-hover"
-          style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
+          style={{ background: "linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)" }}
         >
           <motion.div
             className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
-            style={{ background: "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)" }}
+            style={{ background: "linear-gradient(135deg, #EF4444 0%, #DC2626 100%)" }}
           />
           <ShoppingBag className="w-5 h-5 relative z-10 flex-shrink-0" />
           <span className="relative z-10">{banner.buttonText || "Hacer pedido"}</span>
@@ -161,7 +161,7 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
         onClick={() => { window.location.href = "/admin"; }}
         aria-hidden="true"
         tabIndex={-1}
-        className="absolute bottom-4 right-5 text-[#27272A] hover:text-[#3F3F46] transition-colors duration-300 text-lg leading-none select-none"
+        className="absolute bottom-4 right-5 text-[#E4E4E7] hover:text-[#D4D4D8] transition-colors duration-300 text-lg leading-none select-none"
         style={{ fontSize: "18px" }}
       >
         •

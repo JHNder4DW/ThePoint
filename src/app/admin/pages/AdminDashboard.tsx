@@ -43,10 +43,10 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
       label: "Pedidos hoy",
       value: stats.todayOrders,
       icon: ShoppingBag,
-      color: "rgba(37,99,235,0.15)",
-      border: "rgba(37,99,235,0.3)",
+      color: "rgba(220,38,38,0.15)",
+      border: "rgba(220,38,38,0.3)",
       iconColor: "text-red-400",
-      glow: "rgba(37,99,235,0.1)",
+      glow: "rgba(220,38,38,0.1)",
     },
     {
       label: "Ventas hoy",
@@ -84,7 +84,7 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-7"
       >
-        <h2 className="text-xl font-bold text-white tracking-tight">Dashboard</h2>
+        <h2 className="text-xl font-bold text-[#18181B] tracking-tight">Dashboard</h2>
         <p className="text-[#71717A] text-sm mt-0.5">Resumen de operaciones</p>
       </motion.div>
 
@@ -103,7 +103,7 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
             }}
           >
             <card.icon className={`w-5 h-5 ${card.iconColor} mb-3`} />
-            <p className="text-white font-black text-2xl leading-none tracking-tight">{card.value}</p>
+            <p className="text-[#18181B] font-black text-2xl leading-none tracking-tight">{card.value}</p>
             <p className="text-[#71717A] text-xs mt-1">{card.label}</p>
           </motion.div>
         ))}
@@ -114,16 +114,16 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
         className="rounded-2xl overflow-hidden"
-        style={{ background: "rgba(24,24,27,0.8)", border: "1px solid rgba(63,63,70,0.5)" }}
+        style={{ background: "rgba(244,244,245,0.8)", border: "1px solid rgba(212,212,216,0.5)" }}
       >
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#27272A]">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#E4E4E7]">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-red-400" />
-            <h3 className="text-white font-semibold text-sm">Pedidos recientes</h3>
+            <h3 className="text-[#18181B] font-semibold text-sm">Pedidos recientes</h3>
           </div>
           <button
             onClick={onNavigateOrders}
-            className="text-red-400 text-xs font-medium flex items-center gap-1 hover:text-blue-300 transition-colors"
+            className="text-red-400 text-xs font-medium flex items-center gap-1 hover:text-red-300 transition-colors"
           >
             Ver todos <ChevronRight className="w-3 h-3" />
           </button>
@@ -131,17 +131,17 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
 
         {recent.length === 0 ? (
           <div className="px-5 py-10 text-center">
-            <ShoppingBag className="w-8 h-8 text-[#3F3F46] mx-auto mb-3" />
-            <p className="text-[#52525B] text-sm">Aún no hay pedidos</p>
-            <p className="text-[#3F3F46] text-xs mt-1">Los pedidos aparecerán aquí cuando los clientes ordenen</p>
+            <ShoppingBag className="w-8 h-8 text-[#D4D4D8] mx-auto mb-3" />
+            <p className="text-[#A1A1AA] text-sm">Aún no hay pedidos</p>
+            <p className="text-[#D4D4D8] text-xs mt-1">Los pedidos aparecerán aquí cuando los clientes ordenen</p>
           </div>
         ) : (
-          <div className="divide-y divide-[#27272A]">
+          <div className="divide-y divide-[#E4E4E7]">
             {recent.map(order => (
               <div key={order.id} className="px-5 py-3.5 flex items-center justify-between gap-3">
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-white font-semibold text-sm">{order.id}</span>
+                    <span className="text-[#18181B] font-semibold text-sm">{order.id}</span>
                     <span className={`text-xs font-medium ${STATUS_COLOR[order.status]}`}>
                       {STATUS_LABEL[order.status]}
                     </span>
@@ -151,8 +151,8 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
                   </p>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <p className="text-white font-bold text-sm">${order.total}</p>
-                  <p className="text-[#52525B] text-xs">
+                  <p className="text-[#18181B] font-bold text-sm">${order.total}</p>
+                  <p className="text-[#A1A1AA] text-xs">
                     {new Date(order.createdAt).toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" })}
                   </p>
                 </div>

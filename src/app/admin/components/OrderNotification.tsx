@@ -52,8 +52,8 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
       className="pointer-events-auto rounded-2xl overflow-hidden shadow-2xl"
       style={{
         background: "rgba(15,15,18,0.97)",
-        border: "1px solid rgba(37,99,235,0.4)",
-        boxShadow: "0 0 30px rgba(37,99,235,0.15), 0 8px 32px rgba(0,0,0,0.5)",
+        border: "1px solid rgba(220,38,38,0.4)",
+        boxShadow: "0 0 30px rgba(220,38,38,0.15), 0 8px 32px rgba(0,0,0,0.5)",
         backdropFilter: "blur(20px)",
       }}
     >
@@ -62,7 +62,7 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-          style={{ background: "rgba(37,99,235,0.2)", border: "1px solid rgba(37,99,235,0.4)" }}
+          style={{ background: "rgba(220,38,38,0.2)", border: "1px solid rgba(220,38,38,0.4)" }}
         >
           <ShoppingBag className="w-4 h-4 text-red-400" />
         </motion.div>
@@ -80,22 +80,22 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
             />
           </div>
 
-          <p className="text-white font-bold text-sm font-mono">{order.id}</p>
+          <p className="text-[#18181B] font-bold text-sm font-mono">{order.id}</p>
 
           <div className="mt-1.5 space-y-0.5">
             {previewItems.map((item, i) => (
-              <p key={i} className="text-[#A1A1AA] text-xs">
+              <p key={i} className="text-[#52525B] text-xs">
                 {item.name} <span className="text-[#71717A]">×{item.quantity}</span>
               </p>
             ))}
             {extra > 0 && (
-              <p className="text-[#52525B] text-xs">+{extra} producto{extra > 1 ? "s" : ""} más</p>
+              <p className="text-[#A1A1AA] text-xs">+{extra} producto{extra > 1 ? "s" : ""} más</p>
             )}
           </div>
 
           <div className="mt-2 flex items-center justify-between">
             <span className="text-red-400 font-bold text-sm">${order.total}</span>
-            <span className="text-[#52525B] text-[10px]">
+            <span className="text-[#A1A1AA] text-[10px]">
               {new Date(order.createdAt).toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" })}
             </span>
           </div>
@@ -103,8 +103,8 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
 
         <button
           onClick={() => onDismiss(item.id)}
-          className="w-6 h-6 rounded-lg flex items-center justify-center text-[#52525B] hover:text-white transition-colors flex-shrink-0"
-          style={{ background: "rgba(39,39,42,0.6)" }}
+          className="w-6 h-6 rounded-lg flex items-center justify-center text-[#A1A1AA] hover:text-[#18181B] transition-colors flex-shrink-0"
+          style={{ background: "rgba(228,228,231,0.6)" }}
         >
           <X className="w-3 h-3" />
         </button>
@@ -116,7 +116,7 @@ function NotificationCard({ item, onDismiss }: { item: NotificationItem; onDismi
         transition={{ duration: AUTO_DISMISS_MS / 1000, ease: "linear" }}
         style={{
           height: 2,
-          background: "linear-gradient(90deg, #2563EB, #60A5FA)",
+          background: "linear-gradient(90deg, #DC2626, #F87171)",
           transformOrigin: "left",
         }}
       />
