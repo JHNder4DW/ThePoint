@@ -1,4 +1,6 @@
+from pathlib import Path
 
+content = """
 :root {
   --background: #2B2B2B;
   --foreground: #FFFFFF;
@@ -18,3 +20,8 @@ body {
 .glow-red {
   box-shadow: 0 0 32px rgba(220,38,38,.5);
 }
+"""
+
+file_path = "/mnt/data/theme-rojo-gris.css"
+Path(file_path).write_text(content, encoding="utf-8")
+print(file_path)
