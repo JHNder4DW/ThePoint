@@ -20,14 +20,14 @@ interface QuantityControlsProps {
 
 function QuantityControls({ quantity, onDecrement, onIncrement, accent = "blue" }: QuantityControlsProps) {
   const accentBg = accent === "blue"
-    ? "linear-gradient(135deg, #DC2626, #B91C1C)"
+    ? "linear-gradient(135deg, #2563EB, #1D4ED8)"
     : "linear-gradient(135deg, #16A34A, #15803D)";
   const accentShadow = accent === "blue"
-    ? "0 0 10px rgba(220,38,38,0.35)"
+    ? "0 0 10px rgba(37,99,235,0.35)"
     : "0 0 10px rgba(22,163,74,0.35)";
 
   return (
-    <div className="flex items-center gap-1 rounded-xl p-1" style={{ background: "rgba(228,228,231,0.9)" }}>
+    <div className="flex items-center gap-1 rounded-xl p-1" style={{ background: "rgba(39,39,42,0.9)" }}>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.82 }}
@@ -35,8 +35,8 @@ function QuantityControls({ quantity, onDecrement, onIncrement, accent = "blue" 
         disabled={quantity === 0}
         className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 disabled:opacity-30"
         style={{
-          background: quantity > 0 ? "rgba(212,212,216,0.9)" : "transparent",
-          color: quantity > 0 ? "#18181B" : "#A1A1AA",
+          background: quantity > 0 ? "rgba(63,63,70,0.9)" : "transparent",
+          color: quantity > 0 ? "#FAFAFA" : "#52525B",
         }}
       >
         <Minus className="w-4 h-4" />
@@ -49,7 +49,7 @@ function QuantityControls({ quantity, onDecrement, onIncrement, accent = "blue" 
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 6 }}
           transition={{ duration: 0.14 }}
-          className="w-9 text-center font-bold text-base text-[#18181B] tabular-nums select-none"
+          className="w-9 text-center font-bold text-base text-white tabular-nums select-none"
         >
           {quantity}
         </motion.span>
@@ -59,7 +59,7 @@ function QuantityControls({ quantity, onDecrement, onIncrement, accent = "blue" 
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.82 }}
         onClick={onIncrement}
-        className="w-9 h-9 rounded-lg flex items-center justify-center text-[#18181B] transition-all duration-200"
+        className="w-9 h-9 rounded-lg flex items-center justify-center text-white transition-all duration-200"
         style={{ background: accentBg, boxShadow: accentShadow }}
       >
         <Plus className="w-4 h-4" />
@@ -86,14 +86,14 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
       className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
         background: "rgba(18,18,22,0.95)",
-        border: isInCart ? "1px solid rgba(220,38,38,0.45)" : "1px solid rgba(212,212,216,0.4)",
+        border: isInCart ? "1px solid rgba(37,99,235,0.45)" : "1px solid rgba(63,63,70,0.4)",
         boxShadow: isInCart
-          ? "0 0 30px rgba(220,38,38,0.14), 0 8px 32px rgba(0,0,0,0.5)"
+          ? "0 0 30px rgba(37,99,235,0.14), 0 8px 32px rgba(0,0,0,0.5)"
           : "0 8px 32px rgba(0,0,0,0.4)",
       }}
     >
       {product.image && (
-        <div className="relative w-full overflow-hidden bg-[#FAFAFA]" style={{ height: 200 }}>
+        <div className="relative w-full overflow-hidden bg-[#111115]" style={{ height: 200 }}>
           <motion.img
             src={product.image}
             alt={product.name}
@@ -110,7 +110,7 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white"
-              style={{ background: "#DC2626", boxShadow: "0 0 14px rgba(220,38,38,0.7)" }}
+              style={{ background: "#2563EB", boxShadow: "0 0 14px rgba(37,99,235,0.7)" }}
             >
               {quantity}
             </motion.div>
@@ -121,7 +121,7 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
       <div className="px-5 pb-5 -mt-2">
         <div className="mb-4">
           <h3
-            className="text-[#18181B] font-black leading-none tracking-tight"
+            className="text-white font-black leading-none tracking-tight"
             style={{ fontSize: "2.4rem", letterSpacing: "-0.04em" }}
           >
             {product.name.toUpperCase()}
@@ -130,7 +130,7 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
             <span className="text-red-400 font-black text-2xl" style={{ letterSpacing: "-0.03em" }}>
               ${product.price}
             </span>
-            <span className="text-[#A1A1AA] text-sm font-medium">1 pz</span>
+            <span className="text-[#52525B] text-sm font-medium">1 pz</span>
           </div>
         </div>
 
@@ -142,8 +142,8 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
           />
           {isInCart && (
             <motion.div initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} className="text-right">
-              <p className="text-[#A1A1AA] text-xs">Subtotal</p>
-              <p className="text-[#18181B] font-bold text-sm">${product.price * quantity}</p>
+              <p className="text-[#52525B] text-xs">Subtotal</p>
+              <p className="text-white font-bold text-sm">${product.price * quantity}</p>
             </motion.div>
           )}
         </div>
@@ -195,7 +195,7 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
               style={{
                 background: "rgba(99,179,237,0.2)",
                 border: "1px solid rgba(99,179,237,0.5)",
-                color: "#FCA5A5",
+                color: "#93C5FD",
                 backdropFilter: "blur(8px)",
               }}
             >
@@ -209,7 +209,7 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
         <div className="mb-4">
           <h3
             className="font-black leading-none tracking-tight"
-            style={{ fontSize: "2.6rem", letterSpacing: "-0.05em", color: "#334155" }}
+            style={{ fontSize: "2.6rem", letterSpacing: "-0.05em", color: "#E2E8F0" }}
           >
             {product.name.toUpperCase()}
           </h3>
@@ -231,7 +231,7 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
               onClick={() => onUpdateCart(product.id, Math.max(0, quantity - 1))}
               disabled={quantity === 0}
               className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 disabled:opacity-30"
-              style={{ background: quantity > 0 ? "rgba(51,65,85,0.9)" : "transparent", color: "#475569" }}
+              style={{ background: quantity > 0 ? "rgba(51,65,85,0.9)" : "transparent", color: "#CBD5E1" }}
             >
               <Minus className="w-4 h-4" />
             </motion.button>
@@ -243,7 +243,7 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
                 exit={{ opacity: 0, y: 5 }}
                 transition={{ duration: 0.14 }}
                 className="w-9 text-center font-bold text-base tabular-nums select-none"
-                style={{ color: "#334155" }}
+                style={{ color: "#E2E8F0" }}
               >
                 {quantity}
               </motion.span>
@@ -253,9 +253,9 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
               onClick={() => onUpdateCart(product.id, quantity + 1)}
               className="w-9 h-9 rounded-lg flex items-center justify-center"
               style={{
-                background: "linear-gradient(135deg, rgba(99,179,237,0.25), rgba(239,68,68,0.2))",
+                background: "linear-gradient(135deg, rgba(99,179,237,0.25), rgba(59,130,246,0.2))",
                 border: "1px solid rgba(99,179,237,0.3)",
-                color: "#FCA5A5",
+                color: "#93C5FD",
               }}
             >
               <Plus className="w-4 h-4" />
@@ -263,8 +263,8 @@ function FrioCard({ product, quantity, onUpdateCart, index }: CardProps) {
           </div>
           {isInCart && (
             <motion.div initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} className="text-right">
-              <p className="text-[#CBD5E1] text-xs">Subtotal</p>
-              <p className="font-bold text-sm" style={{ color: "#475569" }}>${product.price * quantity}</p>
+              <p className="text-[#475569] text-xs">Subtotal</p>
+              <p className="font-bold text-sm" style={{ color: "#CBD5E1" }}>${product.price * quantity}</p>
             </motion.div>
           )}
         </div>
@@ -284,7 +284,7 @@ function VerdeCard({ product, quantity, onUpdateCart, index }: CardProps) {
       className="relative rounded-2xl overflow-hidden transition-all duration-300"
       style={{
         minHeight: 340,
-        border: isInCart ? "1px solid rgba(74,222,128,0.35)" : "1px solid rgba(212,212,216,0.3)",
+        border: isInCart ? "1px solid rgba(74,222,128,0.35)" : "1px solid rgba(63,63,70,0.3)",
         boxShadow: isInCart
           ? "0 0 32px rgba(74,222,128,0.1), 0 12px 40px rgba(0,0,0,0.7)"
           : "0 12px 40px rgba(0,0,0,0.6)",
@@ -442,15 +442,15 @@ function DefaultCard({ product, quantity, onUpdateCart, index }: CardProps) {
       transition={{ delay: index * 0.07, duration: 0.4 }}
       className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        background: "rgba(244,244,245,0.8)",
-        border: isInCart ? "1px solid rgba(220,38,38,0.4)" : "1px solid rgba(212,212,216,0.5)",
+        background: "rgba(24,24,27,0.8)",
+        border: isInCart ? "1px solid rgba(37,99,235,0.4)" : "1px solid rgba(63,63,70,0.5)",
         boxShadow: isInCart
-          ? "0 0 20px rgba(220,38,38,0.12), 0 4px 20px rgba(0,0,0,0.4)"
+          ? "0 0 20px rgba(37,99,235,0.12), 0 4px 20px rgba(0,0,0,0.4)"
           : "0 4px 20px rgba(0,0,0,0.3)",
       }}
     >
       {product.image && (
-        <div className="relative w-full h-44 overflow-hidden bg-[#FFFFFF]">
+        <div className="relative w-full h-44 overflow-hidden bg-[#18181B]">
           <motion.img
             src={product.image}
             alt={product.name}
@@ -458,13 +458,13 @@ function DefaultCard({ product, quantity, onUpdateCart, index }: CardProps) {
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.5 }}
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(250,250,250,0.6) 0%, transparent 50%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(9,9,11,0.6) 0%, transparent 50%)" }} />
           {isInCart && (
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white"
-              style={{ background: "#DC2626", boxShadow: "0 0 12px rgba(220,38,38,0.6)" }}
+              style={{ background: "#2563EB", boxShadow: "0 0 12px rgba(37,99,235,0.6)" }}
             >
               {quantity}
             </motion.div>
@@ -475,12 +475,12 @@ function DefaultCard({ product, quantity, onUpdateCart, index }: CardProps) {
       <div className="p-5">
         <div className="flex items-end justify-between mb-4">
           <div>
-            <h3 className="text-[#18181B] font-semibold text-base mb-0.5">{product.name}</h3>
+            <h3 className="text-white font-semibold text-base mb-0.5">{product.name}</h3>
             <p className="text-[#71717A] text-xs">Entrega inmediata</p>
           </div>
           <div className="text-right">
             <span className="text-red-400 font-bold text-xl">${product.price}</span>
-            <p className="text-[#A1A1AA] text-xs">MXN</p>
+            <p className="text-[#52525B] text-xs">MXN</p>
           </div>
         </div>
 
@@ -492,8 +492,8 @@ function DefaultCard({ product, quantity, onUpdateCart, index }: CardProps) {
           />
           {isInCart && (
             <motion.div initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} className="text-right">
-              <p className="text-[#52525B] text-xs">Subtotal</p>
-              <p className="text-[#18181B] font-semibold text-sm">${product.price * quantity}</p>
+              <p className="text-[#A1A1AA] text-xs">Subtotal</p>
+              <p className="text-white font-semibold text-sm">${product.price * quantity}</p>
             </motion.div>
           )}
         </div>
@@ -521,15 +521,15 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#F4F4F5] pb-36"
+      className="min-h-screen bg-[#09090B] pb-36"
     >
       <div
         className="sticky top-0 z-20 px-5 pt-12 pb-5"
-        style={{ background: "linear-gradient(to bottom, #F4F4F5 65%, transparent)" }}
+        style={{ background: "linear-gradient(to bottom, #09090B 65%, transparent)" }}
       >
         <div className="max-w-lg mx-auto flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-[#18181B] tracking-tight">Menú</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Menú</h2>
             <p className="text-[#71717A] text-sm mt-0.5">
               {products.filter(p => p.type !== "category").length} productos · {products.filter(p => p.type === "category").length} categorías
               {promoProducts.length > 0 && ` · ${promoProducts.length} promos`}
@@ -537,7 +537,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
           </div>
           <div
             className="px-3 py-1.5 rounded-full text-xs font-semibold text-red-400"
-            style={{ background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)" }}
+            style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.2)" }}
           >
             Thepoint
           </div>
@@ -559,28 +559,28 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                   onClick={() => product.categoryKey && onOpenCategory(product.categoryKey)}
                   className="relative w-full rounded-2xl overflow-hidden text-left"
                   style={{
-                    background: "linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(15,15,18,0.95) 70%)",
-                    border: "1px solid rgba(220,38,38,0.28)",
-                    boxShadow: "0 0 24px rgba(220,38,38,0.07), 0 4px 20px rgba(0,0,0,0.4)",
+                    background: "linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(15,15,18,0.95) 70%)",
+                    border: "1px solid rgba(37,99,235,0.28)",
+                    boxShadow: "0 0 24px rgba(37,99,235,0.07), 0 4px 20px rgba(0,0,0,0.4)",
                   }}
                 >
                   <motion.div
                     animate={{ opacity: [0.4, 0.7, 0.4] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute inset-0 pointer-events-none"
-                    style={{ background: "linear-gradient(135deg, rgba(220,38,38,0.06) 0%, transparent 55%)" }}
+                    style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.06) 0%, transparent 55%)" }}
                   />
                   <div className="relative p-5 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div
                         className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: "linear-gradient(135deg, rgba(220,38,38,0.2), rgba(220,38,38,0.05))", border: "1px solid rgba(220,38,38,0.22)" }}
+                        style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.2), rgba(37,99,235,0.05))", border: "1px solid rgba(37,99,235,0.22)" }}
                       >
                         <Package2 className="w-5 h-5 text-red-400" />
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-red-400 uppercase tracking-widest mb-0.5">Categoría</div>
-                        <h3 className="text-[#18181B] font-bold text-lg leading-tight">{product.name}</h3>
+                        <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
                         {product.itemCount !== undefined && (
                           <p className="text-[#71717A] text-xs mt-0.5">{product.itemCount} productos · Promos disponibles</p>
                         )}
@@ -588,7 +588,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                     </div>
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: "rgba(220,38,38,0.14)", border: "1px solid rgba(220,38,38,0.22)" }}
+                      style={{ background: "rgba(37,99,235,0.14)", border: "1px solid rgba(37,99,235,0.22)" }}
                     >
                       <ChevronRight className="w-4 h-4 text-red-400" />
                     </div>
@@ -634,7 +634,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                     transition={{ delay: 0.35 + index * 0.1, type: "spring", stiffness: 120 }}
                     className="relative rounded-2xl overflow-hidden"
                     style={{
-                      background: "linear-gradient(145deg, rgba(244,244,245,0.95) 0%, rgba(15,15,18,0.98) 100%)",
+                      background: "linear-gradient(145deg, rgba(24,24,27,0.95) 0%, rgba(15,15,18,0.98) 100%)",
                       border: "1px solid rgba(250,204,21,0.25)",
                       boxShadow: quantity > 0
                         ? "0 0 24px rgba(250,204,21,0.2), inset 0 1px 0 rgba(250,204,21,0.1)"
@@ -656,28 +656,28 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                           PROMO
                         </span>
                       </div>
-                      <p className="font-black text-[#18181B] leading-tight text-base mb-1">{promo.name}</p>
+                      <p className="font-black text-white leading-tight text-base mb-1">{promo.name}</p>
                       <p className="text-yellow-400 font-bold text-xl">${promo.price}</p>
 
                       <div className="mt-4">
                         {quantity > 0 ? (
                           <div
                             className="w-full flex items-center justify-between rounded-xl p-1"
-                            style={{ background: "rgba(228,228,231,0.8)" }}
+                            style={{ background: "rgba(39,39,42,0.8)" }}
                           >
                             <motion.button
                               whileTap={{ scale: 0.85 }}
                               onClick={() => onUpdateCart(promo.id, quantity - 1)}
-                              className="w-8 h-8 rounded-lg flex items-center justify-center text-[#18181B]"
-                              style={{ background: "rgba(212,212,216,0.8)" }}
+                              className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
+                              style={{ background: "rgba(63,63,70,0.8)" }}
                             >
                               <Minus className="w-3 h-3" />
                             </motion.button>
-                            <span className="font-bold text-sm text-[#18181B] tabular-nums">{quantity}</span>
+                            <span className="font-bold text-sm text-white tabular-nums">{quantity}</span>
                             <motion.button
                               whileTap={{ scale: 0.85 }}
                               onClick={() => onUpdateCart(promo.id, quantity + 1)}
-                              className="w-8 h-8 rounded-lg flex items-center justify-center text-[#18181B]"
+                              className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
                               style={{ background: "rgba(250,204,21,0.3)", border: "1px solid rgba(250,204,21,0.3)" }}
                             >
                               <Plus className="w-3 h-3" />
@@ -715,7 +715,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 120, damping: 18 }}
             className="fixed bottom-0 left-0 right-0 px-5 pb-8 pt-4"
-            style={{ background: "linear-gradient(to top, #F4F4F5 60%, transparent)" }}
+            style={{ background: "linear-gradient(to top, #09090B 60%, transparent)" }}
           >
             <div className="max-w-lg mx-auto">
               <motion.button
@@ -723,12 +723,12 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                 whileTap={{ scale: 0.98 }}
                 onClick={onContinue}
                 className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-red"
-                style={{ background: "linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)" }}
+                style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
               >
                 <div className="flex items-center gap-2.5">
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-red-600"
-                    style={{ background: "rgba(24,24,27,0.95)" }}
+                    style={{ background: "rgba(255,255,255,0.95)" }}
                   >
                     {totalItems}
                   </div>
