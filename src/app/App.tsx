@@ -9,6 +9,7 @@ import { OrderConfirmation } from "./components/OrderConfirmation";
 import { CategoryScreen, CategoryItem, Promo } from "./components/CategoryScreen";
 import { saveOrder, getAdminProducts, DEFAULT_ADMIN_PRODUCTS } from "./admin/store";
 import { AdminProduct } from "./admin/types";
+import ThemeToggle from "./components/ThemeToggle";
 
 type Screen = "home" | "products" | "cart" | "location" | "confirmation" | "prerolls" | "comestibles";
 
@@ -176,7 +177,8 @@ export default function App() {
 
   return (
     <>
-      <div className="size-full dark">
+      <ThemeToggle />
+      <div className="size-full">
         <AnimatePresence mode="wait">
           {currentScreen === "home" && (
             <HomeScreen key="home" onStartOrder={() => setCurrentScreen("products")} />
