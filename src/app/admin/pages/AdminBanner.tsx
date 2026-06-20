@@ -107,7 +107,7 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {draft.isActive
-                ? <Eye className="w-5 h-5 text-blue-400" />
+                ? <Eye className="w-5 h-5 text-red-400" />
                 : <EyeOff className="w-5 h-5 text-[#52525B]" />
               }
               <div>
@@ -130,7 +130,7 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.5)" }}
         >
           <div className="flex items-center gap-2 mb-1">
-            <Zap className="w-4 h-4 text-blue-400" />
+            <Zap className="w-4 h-4 text-red-400" />
             <p className="text-white font-semibold text-sm">Texto del badge</p>
           </div>
           <Field
@@ -198,8 +198,8 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
             style={{ border: "1px solid rgba(37,99,235,0.3)" }}
           >
             <div className="px-3 py-2 flex items-center gap-2" style={{ background: "rgba(37,99,235,0.15)", borderBottom: "1px solid rgba(37,99,235,0.2)" }}>
-              <Eye className="w-3 h-3 text-blue-400" />
-              <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Vista previa</span>
+              <Eye className="w-3 h-3 text-red-400" />
+              <span className="text-red-400 text-xs font-semibold uppercase tracking-wider">Vista previa</span>
             </div>
             <div
               className="p-5 relative overflow-hidden"

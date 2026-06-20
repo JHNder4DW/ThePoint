@@ -127,7 +127,7 @@ function SodaCard({ product, quantity, onUpdateCart, index }: CardProps) {
             {product.name.toUpperCase()}
           </h3>
           <div className="flex items-baseline gap-2 mt-1">
-            <span className="text-blue-400 font-black text-2xl" style={{ letterSpacing: "-0.03em" }}>
+            <span className="text-red-400 font-black text-2xl" style={{ letterSpacing: "-0.03em" }}>
               ${product.price}
             </span>
             <span className="text-[#52525B] text-sm font-medium">1 pz</span>
@@ -479,7 +479,7 @@ function DefaultCard({ product, quantity, onUpdateCart, index }: CardProps) {
             <p className="text-[#71717A] text-xs">Entrega inmediata</p>
           </div>
           <div className="text-right">
-            <span className="text-blue-400 font-bold text-xl">${product.price}</span>
+            <span className="text-red-400 font-bold text-xl">${product.price}</span>
             <p className="text-[#52525B] text-xs">MXN</p>
           </div>
         </div>
@@ -536,7 +536,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
             </p>
           </div>
           <div
-            className="px-3 py-1.5 rounded-full text-xs font-semibold text-blue-400"
+            className="px-3 py-1.5 rounded-full text-xs font-semibold text-red-400"
             style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.2)" }}
           >
             Thepoint
@@ -576,10 +576,10 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                         className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                         style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.2), rgba(37,99,235,0.05))", border: "1px solid rgba(37,99,235,0.22)" }}
                       >
-                        <Package2 className="w-5 h-5 text-blue-400" />
+                        <Package2 className="w-5 h-5 text-red-400" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-0.5">Categoría</div>
+                        <div className="text-xs font-semibold text-red-400 uppercase tracking-widest mb-0.5">Categoría</div>
                         <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
                         {product.itemCount !== undefined && (
                           <p className="text-[#71717A] text-xs mt-0.5">{product.itemCount} productos · Promos disponibles</p>
@@ -590,7 +590,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                       className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ background: "rgba(37,99,235,0.14)", border: "1px solid rgba(37,99,235,0.22)" }}
                     >
-                      <ChevronRight className="w-4 h-4 text-blue-400" />
+                      <ChevronRight className="w-4 h-4 text-red-400" />
                     </div>
                   </div>
                 </motion.button>
@@ -722,12 +722,12 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onContinue}
-                className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-blue"
+                className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-red"
                 style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
               >
                 <div className="flex items-center gap-2.5">
                   <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-blue-600"
+                    className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-red-600"
                     style={{ background: "rgba(255,255,255,0.95)" }}
                   >
                     {totalItems}

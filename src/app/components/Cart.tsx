@@ -74,7 +74,7 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "rgba(37, 99, 235, 0.12)", border: "1px solid rgba(37,99,235,0.2)" }}
                   >
-                    <ShoppingBag className="w-4 h-4 text-blue-400" />
+                    <ShoppingBag className="w-4 h-4 text-red-400" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-white font-semibold text-sm leading-snug truncate">{item.name}</p>
@@ -118,7 +118,7 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
           </div>
           <div className="flex items-center justify-between pt-4">
             <span className="text-white font-bold text-base">Total</span>
-            <span className="text-blue-400 font-black text-2xl tracking-tight">${total}</span>
+            <span className="text-red-400 font-black text-2xl tracking-tight">${total}</span>
           </div>
         </motion.div>
       </div>
@@ -134,7 +134,7 @@ export function Cart({ allItems, cart, onBack, onContinue }: CartProps) {
             whileTap={{ scale: 0.98 }}
             onClick={onContinue}
             disabled={cartItems.length === 0}
-            className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-blue disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-red disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
           >
             <MapPin className="w-4 h-4" />

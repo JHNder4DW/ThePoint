@@ -85,8 +85,8 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
             border: "1px solid rgba(37, 99, 235, 0.25)",
           }}
         >
-          <Zap className="w-3 h-3 text-blue-400" />
-          <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">
+          <Zap className="w-3 h-3 text-red-400" />
+          <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">
             {banner.badgeText || "Entrega Premium"}
           </span>
         </motion.div>
@@ -145,7 +145,7 @@ export function HomeScreen({ onStartOrder }: HomeScreenProps) {
           whileHover={{ scale: 1.03, y: -2 }}
           whileTap={{ scale: 0.97 }}
           onClick={handleButtonClick}
-          className="w-full relative py-5 px-8 rounded-2xl text-white font-semibold text-lg flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 glow-blue glow-blue-hover"
+          className="w-full relative py-5 px-8 rounded-2xl text-white font-semibold text-lg flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 glow-red glow-red-hover"
           style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
         >
           <motion.div

@@ -144,8 +144,8 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
       <header className="relative z-10 flex items-center justify-between px-5 pt-10 pb-6 max-w-lg mx-auto w-full">
         <div>
           <div className="flex items-center gap-1.5 mb-1">
-            <Zap className="w-3 h-3 text-blue-400" />
-            <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
+            <Zap className="w-3 h-3 text-red-400" />
+            <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
           <h1 className="text-white font-black text-xl tracking-tight">Seguimiento</h1>
         </div>
@@ -172,7 +172,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                 className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{ background: "rgba(37,99,235,0.2)" }}
               >
-                <Clock className="w-4 h-4 text-blue-400" />
+                <Clock className="w-4 h-4 text-red-400" />
               </div>
               <div>
                 <p className="text-[#71717A] text-xs">Tiempo estimado</p>
@@ -243,7 +243,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
                         {isDone ? (
                           <CheckCircle2 className="w-4 h-4 text-green-400" />
                         ) : (
-                          <Icon className={`w-4 h-4 ${isActive ? "text-blue-400" : "text-[#52525B]"}`} />
+                          <Icon className={`w-4 h-4 ${isActive ? "text-red-400" : "text-[#52525B]"}`} />
                         )}
                       </motion.div>
                       {idx < STEPS.length - 1 && (
@@ -295,7 +295,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
               <div key={i} className="flex justify-between items-center">
                 <div className="flex items-center gap-2.5">
                   <span
-                    className="w-5 h-5 rounded-md flex items-center justify-center text-blue-400 font-bold text-xs flex-shrink-0"
+                    className="w-5 h-5 rounded-md flex items-center justify-center text-red-400 font-bold text-xs flex-shrink-0"
                     style={{ background: "rgba(37,99,235,0.12)" }}
                   >
                     {item.quantity}
@@ -307,7 +307,7 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
             ))}
             <div className="pt-2.5 border-t border-[#27272A] flex justify-between">
               <span className="text-white font-semibold text-sm">Total</span>
-              <span className="text-blue-400 font-black text-sm">${order.total}</span>
+              <span className="text-red-400 font-black text-sm">${order.total}</span>
             </div>
           </div>
         </div>
@@ -338,7 +338,7 @@ function LoadingState() {
         transition={{ duration: 1.5, repeat: Infinity }}
         className="flex flex-col items-center gap-4"
       >
-        <Sparkles className="w-8 h-8 text-blue-400" />
+        <Sparkles className="w-8 h-8 text-red-400" />
         <p className="text-[#71717A] text-sm">Cargando pedido...</p>
       </motion.div>
     </div>
@@ -364,8 +364,8 @@ function NotFoundState({ orderId }: { orderId: string }) {
           </p>
         </div>
         <div className="flex items-center justify-center gap-1.5 pt-2">
-          <Zap className="w-3 h-3 text-blue-400" />
-          <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
+          <Zap className="w-3 h-3 text-red-400" />
+          <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
         </div>
       </motion.div>
     </div>

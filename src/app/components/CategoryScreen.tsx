@@ -64,7 +64,7 @@ export function CategoryScreen({
           className="mb-8"
         >
           <div
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 text-blue-400"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 text-red-400"
             style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.2)" }}
           >
             <Tag className="w-3 h-3" />
@@ -98,7 +98,7 @@ export function CategoryScreen({
               >
                 <div className="flex-1 min-w-0 mr-3">
                   <p className="text-white font-medium text-sm leading-snug">{item.name}</p>
-                  <p className="text-blue-400 font-bold text-base mt-0.5">${item.price}</p>
+                  <p className="text-red-400 font-bold text-base mt-0.5">${item.price}</p>
                 </div>
                 <div
                   className="flex items-center gap-1 rounded-xl p-1 flex-shrink-0"
@@ -266,12 +266,12 @@ export function CategoryScreen({
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onViewCart}
-                className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-blue"
+                className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-red"
                 style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
               >
                 <div className="flex items-center gap-2.5">
                   <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-blue-600"
+                    className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-red-600"
                     style={{ background: "rgba(255,255,255,0.95)" }}
                   >
                     {totalCartItems}

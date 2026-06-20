@@ -55,12 +55,12 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
               boxShadow: "0 0 30px rgba(37,99,235,0.2)",
             }}
           >
-            <Lock className="w-7 h-7 text-blue-400" />
+            <Lock className="w-7 h-7 text-red-400" />
           </motion.div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Panel Admin</h1>
           <div className="flex items-center justify-center gap-1.5 mt-2">
-            <Zap className="w-3 h-3 text-blue-400" />
-            <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
+            <Zap className="w-3 h-3 text-red-400" />
+            <span className="text-red-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
         </div>
 
