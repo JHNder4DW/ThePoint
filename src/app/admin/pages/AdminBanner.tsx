@@ -16,8 +16,8 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
       onClick={() => onChange(!checked)}
       className="relative w-11 h-6 rounded-full transition-all duration-300 flex-shrink-0"
       style={{
-        background: checked ? "linear-gradient(135deg, #2563EB, #1D4ED8)" : "rgba(63,63,70,0.8)",
-        boxShadow: checked ? "0 0 12px rgba(37,99,235,0.4)" : "none",
+        background: checked ? "linear-gradient(135deg, #DC2626, #B91C1C)" : "rgba(212,212,216,0.8)",
+        boxShadow: checked ? "0 0 12px rgba(220,38,38,0.4)" : "none",
       }}
     >
       <motion.div
@@ -47,12 +47,12 @@ function Field({ label, value, onChange, placeholder, type = "text", hint }: {
         value={value}
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-3 py-2.5 rounded-xl text-white text-sm outline-none placeholder-[#52525B] transition-all"
-        style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
-        onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
-        onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
+        className="w-full px-3 py-2.5 rounded-xl text-[#18181B] text-sm outline-none placeholder-[#A1A1AA] transition-all"
+        style={{ background: "rgba(250,250,250,0.9)", border: "1px solid rgba(212,212,216,0.5)" }}
+        onFocus={e => { e.target.style.border = "1px solid rgba(220,38,38,0.4)"; }}
+        onBlur={e => { e.target.style.border = "1px solid rgba(212,212,216,0.5)"; }}
       />
-      {hint && <p className="text-[#52525B] text-xs mt-1">{hint}</p>}
+      {hint && <p className="text-[#A1A1AA] text-xs mt-1">{hint}</p>}
     </div>
   );
 }
@@ -88,7 +88,7 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-6"
       >
-        <h2 className="text-xl font-bold text-white tracking-tight">Banner</h2>
+        <h2 className="text-xl font-bold text-[#18181B] tracking-tight">Banner</h2>
         <p className="text-[#71717A] text-sm mt-0.5">Configura el banner principal de la tienda</p>
       </motion.div>
 
@@ -100,18 +100,18 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           transition={{ delay: 0.06 }}
           className="rounded-2xl p-5"
           style={{
-            background: draft.isActive ? "rgba(37,99,235,0.08)" : "rgba(24,24,27,0.85)",
-            border: draft.isActive ? "1px solid rgba(37,99,235,0.3)" : "1px solid rgba(63,63,70,0.5)",
+            background: draft.isActive ? "rgba(220,38,38,0.08)" : "rgba(244,244,245,0.85)",
+            border: draft.isActive ? "1px solid rgba(220,38,38,0.3)" : "1px solid rgba(212,212,216,0.5)",
           }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {draft.isActive
                 ? <Eye className="w-5 h-5 text-red-400" />
-                : <EyeOff className="w-5 h-5 text-[#52525B]" />
+                : <EyeOff className="w-5 h-5 text-[#A1A1AA]" />
               }
               <div>
-                <p className="text-white font-semibold text-sm">Banner activo</p>
+                <p className="text-[#18181B] font-semibold text-sm">Banner activo</p>
                 <p className="text-[#71717A] text-xs mt-0.5">
                   {draft.isActive ? "Visible en la tienda" : "Oculto para clientes"}
                 </p>
@@ -127,11 +127,11 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="rounded-2xl p-5 flex flex-col gap-4"
-          style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.5)" }}
+          style={{ background: "rgba(244,244,245,0.85)", border: "1px solid rgba(212,212,216,0.5)" }}
         >
           <div className="flex items-center gap-2 mb-1">
             <Zap className="w-4 h-4 text-red-400" />
-            <p className="text-white font-semibold text-sm">Texto del badge</p>
+            <p className="text-[#18181B] font-semibold text-sm">Texto del badge</p>
           </div>
           <Field
             label="Badge"
@@ -155,11 +155,11 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.14 }}
           className="rounded-2xl p-5 flex flex-col gap-4"
-          style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.5)" }}
+          style={{ background: "rgba(244,244,245,0.85)", border: "1px solid rgba(212,212,216,0.5)" }}
         >
           <div>
-            <p className="text-white font-semibold text-sm mb-0.5">Banner promocional</p>
-            <p className="text-[#52525B] text-xs">Aparece cuando el banner está activo</p>
+            <p className="text-[#18181B] font-semibold text-sm mb-0.5">Banner promocional</p>
+            <p className="text-[#A1A1AA] text-xs">Aparece cuando el banner está activo</p>
           </div>
           <Field
             label="Título"
@@ -195,15 +195,15 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="rounded-2xl overflow-hidden"
-            style={{ border: "1px solid rgba(37,99,235,0.3)" }}
+            style={{ border: "1px solid rgba(220,38,38,0.3)" }}
           >
-            <div className="px-3 py-2 flex items-center gap-2" style={{ background: "rgba(37,99,235,0.15)", borderBottom: "1px solid rgba(37,99,235,0.2)" }}>
+            <div className="px-3 py-2 flex items-center gap-2" style={{ background: "rgba(220,38,38,0.15)", borderBottom: "1px solid rgba(220,38,38,0.2)" }}>
               <Eye className="w-3 h-3 text-red-400" />
               <span className="text-red-400 text-xs font-semibold uppercase tracking-wider">Vista previa</span>
             </div>
             <div
               className="p-5 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(9,9,11,0.98) 100%)" }}
+              style={{ background: "linear-gradient(135deg, rgba(220,38,38,0.12) 0%, rgba(250,250,250,0.98) 100%)" }}
             >
               {draft.imageUrl && (
                 <div className="absolute inset-0 opacity-20">
@@ -212,10 +212,10 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
               )}
               <div className="relative">
                 {draft.title && (
-                  <p className="text-white font-bold text-base leading-tight">{draft.title}</p>
+                  <p className="text-[#18181B] font-bold text-base leading-tight">{draft.title}</p>
                 )}
                 {draft.subtitle && (
-                  <p className="text-[#A1A1AA] text-sm mt-1">{draft.subtitle}</p>
+                  <p className="text-[#52525B] text-sm mt-1">{draft.subtitle}</p>
                 )}
               </div>
             </div>
@@ -234,10 +234,10 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           style={{
             background: saved
               ? "linear-gradient(135deg, #16A34A, #15803D)"
-              : "linear-gradient(135deg, #2563EB, #1D4ED8)",
+              : "linear-gradient(135deg, #DC2626, #B91C1C)",
             boxShadow: saved
               ? "0 0 20px rgba(22,163,74,0.3)"
-              : "0 0 20px rgba(37,99,235,0.3)",
+              : "0 0 20px rgba(220,38,38,0.3)",
           }}
         >
           <Check className={`w-4 h-4 transition-transform ${saved ? "scale-110" : "scale-100"}`} />
@@ -247,9 +247,9 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
         {/* Instrucción SQL */}
         <div
           className="rounded-xl px-4 py-3 text-xs text-[#71717A]"
-          style={{ background: "rgba(39,39,42,0.4)", border: "1px solid rgba(63,63,70,0.3)" }}
+          style={{ background: "rgba(228,228,231,0.4)", border: "1px solid rgba(212,212,216,0.3)" }}
         >
-          <Image className="w-3 h-3 inline mr-1.5 text-[#52525B]" />
+          <Image className="w-3 h-3 inline mr-1.5 text-[#A1A1AA]" />
           Asegúrate de haber ejecutado el SQL de migración en Supabase para que el banner funcione.
         </div>
       </div>

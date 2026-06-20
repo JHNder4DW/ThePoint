@@ -20,12 +20,12 @@ function Toggle({ checked, onChange, accent = "blue" }: { checked: boolean; onCh
   const bg = checked
     ? accent === "yellow"
       ? "linear-gradient(135deg, #FACC15, #EAB308)"
-      : "linear-gradient(135deg, #2563EB, #1D4ED8)"
-    : "rgba(63,63,70,0.8)";
+      : "linear-gradient(135deg, #DC2626, #B91C1C)"
+    : "rgba(212,212,216,0.8)";
   const shadow = checked
     ? accent === "yellow"
       ? "0 0 12px rgba(250,204,21,0.4)"
-      : "0 0 12px rgba(37,99,235,0.4)"
+      : "0 0 12px rgba(220,38,38,0.4)"
     : "none";
   return (
     <button
@@ -104,26 +104,26 @@ export function AdminProducts({ products, onProductsChange }: Props) {
         transition={{ delay: idx * 0.04 }}
         className="rounded-2xl overflow-hidden transition-all duration-300"
         style={{
-          background: "rgba(24,24,27,0.85)",
+          background: "rgba(244,244,245,0.85)",
           border: product.isPromo
             ? "1px solid rgba(250,204,21,0.3)"
             : product.available
-              ? "1px solid rgba(63,63,70,0.5)"
-              : "1px solid rgba(63,63,70,0.25)",
+              ? "1px solid rgba(212,212,216,0.5)"
+              : "1px solid rgba(212,212,216,0.25)",
           opacity: product.available ? 1 : 0.65,
         }}
       >
         <div className="p-4 flex items-start gap-3">
           <div
             className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center mt-0.5"
-            style={{ background: "rgba(39,39,42,0.8)" }}
+            style={{ background: "rgba(228,228,231,0.8)" }}
           >
             {product.image ? (
               <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             ) : product.isCategory ? (
               <Tag className="w-5 h-5 text-red-400" />
             ) : (
-              <Package2 className="w-5 h-5 text-[#52525B]" />
+              <Package2 className="w-5 h-5 text-[#A1A1AA]" />
             )}
           </div>
 
@@ -134,8 +134,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   value={editing.name}
                   onChange={e => setEditing(ed => ed ? { ...ed, name: e.target.value } : ed)}
                   placeholder="Nombre"
-                  className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
-                  style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(37,99,235,0.4)" }}
+                  className="w-full px-3 py-2 rounded-lg text-[#18181B] text-sm outline-none"
+                  style={{ background: "rgba(250,250,250,0.9)", border: "1px solid rgba(220,38,38,0.4)" }}
                 />
                 {!product.isCategory && (
                   <>
@@ -146,8 +146,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                         value={editing.price}
                         onChange={e => setEditing(ed => ed ? { ...ed, price: e.target.value } : ed)}
                         placeholder="Precio"
-                        className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
-                        style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(37,99,235,0.4)" }}
+                        className="w-full px-3 py-2 rounded-lg text-[#18181B] text-sm outline-none"
+                        style={{ background: "rgba(250,250,250,0.9)", border: "1px solid rgba(220,38,38,0.4)" }}
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -157,8 +157,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                         value={editing.promoPrice}
                         onChange={e => setEditing(ed => ed ? { ...ed, promoPrice: e.target.value } : ed)}
                         placeholder="Precio promocional"
-                        className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
-                        style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(250,204,21,0.3)" }}
+                        className="w-full px-3 py-2 rounded-lg text-[#18181B] text-sm outline-none"
+                        style={{ background: "rgba(250,250,250,0.9)", border: "1px solid rgba(250,204,21,0.3)" }}
                       />
                     </div>
                   </>
@@ -170,7 +170,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   {product.isCategory && (
                     <span
                       className="text-xs font-semibold px-1.5 py-0.5 rounded text-red-400"
-                      style={{ background: "rgba(37,99,235,0.1)" }}
+                      style={{ background: "rgba(220,38,38,0.1)" }}
                     >
                       <Tag className="w-2.5 h-2.5 inline mr-0.5" />Cat
                     </span>
@@ -178,7 +178,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   {product.categoryKey && !product.isCategory && (
                     <span
                       className="text-xs font-semibold px-1.5 py-0.5 rounded text-[#71717A]"
-                      style={{ background: "rgba(63,63,70,0.3)" }}
+                      style={{ background: "rgba(212,212,216,0.3)" }}
                     >
                       {product.categoryKey}
                     </span>
@@ -191,7 +191,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                       <Sparkles className="w-2.5 h-2.5 inline mr-0.5" />PROMO
                     </span>
                   )}
-                  <p className="text-white font-semibold text-sm">{product.name}</p>
+                  <p className="text-[#18181B] font-semibold text-sm">{product.name}</p>
                 </div>
                 {!product.isCategory && (
                   <div className="flex items-center gap-3 mt-0.5">
@@ -203,7 +203,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                     )}
                   </div>
                 )}
-                <p className={`text-xs mt-0.5 ${product.available ? "text-green-400" : "text-[#52525B]"}`}>
+                <p className={`text-xs mt-0.5 ${product.available ? "text-green-400" : "text-[#A1A1AA]"}`}>
                   {product.available ? "Disponible" : "No disponible"}
                 </p>
               </div>
@@ -226,7 +226,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   whileTap={{ scale: 0.9 }}
                   onClick={cancelEdit}
                   className="w-8 h-8 rounded-lg flex items-center justify-center text-[#71717A]"
-                  style={{ background: "rgba(39,39,42,0.8)", border: "1px solid rgba(63,63,70,0.5)" }}
+                  style={{ background: "rgba(228,228,231,0.8)", border: "1px solid rgba(212,212,216,0.5)" }}
                 >
                   <X className="w-4 h-4" />
                 </motion.button>
@@ -236,8 +236,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   onClick={() => startEdit(product)}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[#71717A] hover:text-white transition-colors"
-                  style={{ background: "rgba(39,39,42,0.8)" }}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[#71717A] hover:text-[#18181B] transition-colors"
+                  style={{ background: "rgba(228,228,231,0.8)" }}
                 >
                   <Edit3 className="w-3.5 h-3.5" />
                 </motion.button>
@@ -249,7 +249,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
             )}
             {!isEditing && !product.isCategory && (
               <div className="flex items-center gap-2">
-                <span className="text-[#52525B] text-[10px] font-medium">Promo</span>
+                <span className="text-[#A1A1AA] text-[10px] font-medium">Promo</span>
                 <Toggle
                   checked={product.isPromo}
                   onChange={val => togglePromo(product.id, val)}
@@ -276,7 +276,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-6"
       >
-        <h2 className="text-xl font-bold text-white tracking-tight">Productos</h2>
+        <h2 className="text-xl font-bold text-[#18181B] tracking-tight">Productos</h2>
         <p className="text-[#71717A] text-sm mt-0.5">
           Gestiona disponibilidad, precios y promociones
         </p>
@@ -285,7 +285,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
       <div className="flex flex-col gap-6">
         {sections.map(section => (
           <div key={section.label}>
-            <p className="text-[#52525B] text-xs font-semibold uppercase tracking-widest mb-3 px-1">
+            <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-widest mb-3 px-1">
               {section.label}
             </p>
             <div className="flex flex-col gap-3">
