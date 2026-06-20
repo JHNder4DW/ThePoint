@@ -137,7 +137,7 @@ export default function AdminShell() {
   }
 
   return (
-    <div className="min-h-screen bg-[#2A2A2E] flex flex-col md:flex-row">
+    <div className="min-h-screen bg-[#09090B] flex flex-col md:flex-row">
       <OrderNotifications notifications={notifications} onDismiss={dismissNotification} />
 
       <AnimatePresence>
