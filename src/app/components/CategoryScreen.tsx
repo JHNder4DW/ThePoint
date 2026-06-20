@@ -44,14 +44,14 @@ export function CategoryScreen({
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#F4F4F5] pb-36"
+      className="min-h-screen bg-[#09090B] pb-36"
     >
       <div className="px-5 pt-12 pb-4 max-w-lg mx-auto">
         <motion.button
           whileHover={{ x: -3 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
-          className="flex items-center gap-2 text-[#71717A] hover:text-[#18181B] transition-colors duration-200 mb-8"
+          className="flex items-center gap-2 text-[#71717A] hover:text-white transition-colors duration-200 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Volver</span>
@@ -65,18 +65,18 @@ export function CategoryScreen({
         >
           <div
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 text-red-400"
-            style={{ background: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)" }}
+            style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.2)" }}
           >
             <Tag className="w-3 h-3" />
             Categoría
           </div>
           <h2
-            className="text-[#18181B] font-black tracking-tight leading-none"
+            className="text-white font-black tracking-tight leading-none"
             style={{ fontSize: "clamp(1.6rem, 7vw, 2.2rem)", letterSpacing: "-0.03em" }}
           >
             {title}
           </h2>
-          <p className="text-[#A1A1AA] text-xs font-semibold uppercase tracking-widest mt-2">
+          <p className="text-[#52525B] text-xs font-semibold uppercase tracking-widest mt-2">
             {menuLabel}
           </p>
         </motion.div>
@@ -92,17 +92,17 @@ export function CategoryScreen({
                 transition={{ delay: 0.1 + index * 0.07 }}
                 className="rounded-xl p-4 flex items-center justify-between transition-all duration-300"
                 style={{
-                  background: quantity > 0 ? "rgba(220,38,38,0.08)" : "rgba(244,244,245,0.8)",
-                  border: quantity > 0 ? "1px solid rgba(220,38,38,0.3)" : "1px solid rgba(212,212,216,0.5)",
+                  background: quantity > 0 ? "rgba(37,99,235,0.08)" : "rgba(24,24,27,0.8)",
+                  border: quantity > 0 ? "1px solid rgba(37,99,235,0.3)" : "1px solid rgba(63,63,70,0.5)",
                 }}
               >
                 <div className="flex-1 min-w-0 mr-3">
-                  <p className="text-[#18181B] font-medium text-sm leading-snug">{item.name}</p>
+                  <p className="text-white font-medium text-sm leading-snug">{item.name}</p>
                   <p className="text-red-400 font-bold text-base mt-0.5">${item.price}</p>
                 </div>
                 <div
                   className="flex items-center gap-1 rounded-xl p-1 flex-shrink-0"
-                  style={{ background: "rgba(228,228,231,0.8)" }}
+                  style={{ background: "rgba(39,39,42,0.8)" }}
                 >
                   <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -110,7 +110,7 @@ export function CategoryScreen({
                     onClick={() => onUpdateCart(item.id, Math.max(0, quantity - 1))}
                     disabled={quantity === 0}
                     className="w-8 h-8 rounded-lg flex items-center justify-center transition-all disabled:opacity-30"
-                    style={{ background: quantity > 0 ? "rgba(212,212,216,0.8)" : "transparent", color: "#18181B" }}
+                    style={{ background: quantity > 0 ? "rgba(63,63,70,0.8)" : "transparent", color: "#FAFAFA" }}
                   >
                     <Minus className="w-3.5 h-3.5" />
                   </motion.button>
@@ -121,7 +121,7 @@ export function CategoryScreen({
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 5 }}
                       transition={{ duration: 0.12 }}
-                      className="w-8 text-center font-bold text-sm text-[#18181B] tabular-nums"
+                      className="w-8 text-center font-bold text-sm text-white tabular-nums"
                     >
                       {quantity}
                     </motion.span>
@@ -132,8 +132,8 @@ export function CategoryScreen({
                     onClick={() => onUpdateCart(item.id, quantity + 1)}
                     className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
                     style={{
-                      background: "linear-gradient(135deg, #DC2626, #B91C1C)",
-                      boxShadow: "0 0 8px rgba(220,38,38,0.3)",
+                      background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+                      boxShadow: "0 0 8px rgba(37,99,235,0.3)",
                     }}
                   >
                     <Plus className="w-3.5 h-3.5" />
@@ -152,13 +152,13 @@ export function CategoryScreen({
               transition={{ delay: 0.3 }}
               className="flex items-center gap-3 mb-5"
             >
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(212,212,216,0.6))" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(63,63,70,0.6))" }} />
               <div className="flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-yellow-400" />
                 <span className="text-[#71717A] text-xs font-semibold uppercase tracking-widest">Promociones</span>
                 <Sparkles className="w-3 h-3 text-yellow-400" />
               </div>
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(212,212,216,0.6))" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(63,63,70,0.6))" }} />
             </motion.div>
 
             <div className="grid grid-cols-2 gap-3">
@@ -172,7 +172,7 @@ export function CategoryScreen({
                     transition={{ delay: 0.35 + index * 0.1, type: "spring", stiffness: 120 }}
                     className="relative rounded-2xl overflow-hidden"
                     style={{
-                      background: "linear-gradient(145deg, rgba(244,244,245,0.95) 0%, rgba(15,15,18,0.98) 100%)",
+                      background: "linear-gradient(145deg, rgba(24,24,27,0.95) 0%, rgba(15,15,18,0.98) 100%)",
                       border: "1px solid rgba(250,204,21,0.25)",
                       boxShadow: quantity > 0
                         ? "0 0 24px rgba(250,204,21,0.2), inset 0 1px 0 rgba(250,204,21,0.1)"
@@ -196,7 +196,7 @@ export function CategoryScreen({
                         </span>
                       </div>
                       <p
-                        className="font-black text-[#18181B] leading-tight mb-1"
+                        className="font-black text-white leading-tight mb-1"
                         style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}
                       >
                         {promo.name}
@@ -207,21 +207,21 @@ export function CategoryScreen({
                         {quantity > 0 ? (
                           <div
                             className="w-full flex items-center justify-between rounded-xl p-1"
-                            style={{ background: "rgba(228,228,231,0.8)" }}
+                            style={{ background: "rgba(39,39,42,0.8)" }}
                           >
                             <motion.button
                               whileTap={{ scale: 0.85 }}
                               onClick={() => onUpdateCart(promo.id, quantity - 1)}
-                              className="w-8 h-8 rounded-lg flex items-center justify-center text-[#18181B]"
-                              style={{ background: "rgba(212,212,216,0.8)" }}
+                              className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
+                              style={{ background: "rgba(63,63,70,0.8)" }}
                             >
                               <Minus className="w-3 h-3" />
                             </motion.button>
-                            <span className="font-bold text-sm text-[#18181B] tabular-nums">{quantity}</span>
+                            <span className="font-bold text-sm text-white tabular-nums">{quantity}</span>
                             <motion.button
                               whileTap={{ scale: 0.85 }}
                               onClick={() => onUpdateCart(promo.id, quantity + 1)}
-                              className="w-8 h-8 rounded-lg flex items-center justify-center text-[#18181B]"
+                              className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
                               style={{ background: "rgba(250,204,21,0.3)", border: "1px solid rgba(250,204,21,0.3)" }}
                             >
                               <Plus className="w-3 h-3" />
@@ -259,7 +259,7 @@ export function CategoryScreen({
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 120, damping: 18 }}
             className="fixed bottom-0 left-0 right-0 px-5 pb-8 pt-4"
-            style={{ background: "linear-gradient(to top, #F4F4F5 60%, transparent)" }}
+            style={{ background: "linear-gradient(to top, #09090B 60%, transparent)" }}
           >
             <div className="max-w-lg mx-auto">
               <motion.button
@@ -267,12 +267,12 @@ export function CategoryScreen({
                 whileTap={{ scale: 0.98 }}
                 onClick={onViewCart}
                 className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-between transition-all duration-300 glow-red"
-                style={{ background: "linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)" }}
+                style={{ background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)" }}
               >
                 <div className="flex items-center gap-2.5">
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-red-600"
-                    style={{ background: "rgba(24,24,27,0.95)" }}
+                    style={{ background: "rgba(255,255,255,0.95)" }}
                   >
                     {totalCartItems}
                   </div>

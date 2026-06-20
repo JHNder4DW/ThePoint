@@ -59,14 +59,14 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="min-h-screen bg-[#F4F4F5] pb-10"
+      className="min-h-screen bg-[#09090B] pb-10"
     >
       <div className="px-5 pt-12 pb-6 max-w-lg mx-auto">
         <motion.button
           whileHover={{ x: -3 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
-          className="flex items-center gap-2 text-[#71717A] hover:text-[#18181B] transition-colors duration-200 mb-8"
+          className="flex items-center gap-2 text-[#71717A] hover:text-white transition-colors duration-200 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Volver</span>
@@ -78,7 +78,7 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <h2 className="text-2xl font-bold text-[#18181B] tracking-tight">Ubicación</h2>
+          <h2 className="text-2xl font-bold text-white tracking-tight">Ubicación</h2>
           <p className="text-[#71717A] text-sm mt-1">¿Dónde te enviamos tu pedido?</p>
         </motion.div>
 
@@ -97,14 +97,14 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
             style={{
               background: gpsState === "success"
                 ? "rgba(34, 197, 94, 0.1)"
-                : "rgba(220,38,38, 0.1)",
+                : "rgba(37, 99, 235, 0.1)",
               border: gpsState === "success"
                 ? "1px solid rgba(34, 197, 94, 0.35)"
-                : "1px solid rgba(220,38,38, 0.3)",
-              color: gpsState === "success" ? "#86EFAC" : "#FCA5A5",
+                : "1px solid rgba(37, 99, 235, 0.3)",
+              color: gpsState === "success" ? "#86EFAC" : "#93C5FD",
               boxShadow: gpsState === "success"
                 ? "0 0 20px rgba(34,197,94,0.08)"
-                : "0 0 20px rgba(220,38,38,0.1)",
+                : "0 0 20px rgba(37,99,235,0.1)",
             }}
           >
             {gpsState === "loading" && <Loader2 className="w-4 h-4 animate-spin" />}
@@ -140,9 +140,9 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
           transition={{ delay: 0.25 }}
           className="flex items-center gap-3 mb-5"
         >
-          <div className="flex-1 h-px bg-[#E4E4E7]" />
-          <span className="text-[#A1A1AA] text-xs font-medium">o escribe tu dirección</span>
-          <div className="flex-1 h-px bg-[#E4E4E7]" />
+          <div className="flex-1 h-px bg-[#27272A]" />
+          <span className="text-[#52525B] text-xs font-medium">o escribe tu dirección</span>
+          <div className="flex-1 h-px bg-[#27272A]" />
         </motion.div>
 
         <motion.div
@@ -156,19 +156,19 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Calle, número, colonia, referencias..."
             rows={4}
-            className="w-full px-4 py-4 rounded-2xl text-[#18181B] placeholder-[#A1A1AA] resize-none outline-none transition-all duration-300 text-sm"
+            className="w-full px-4 py-4 rounded-2xl text-white placeholder-[#52525B] resize-none outline-none transition-all duration-300 text-sm"
             style={{
-              background: "rgba(244,244,245, 0.9)",
-              border: address ? "1px solid rgba(220,38,38, 0.4)" : "1px solid rgba(212,212,216, 0.6)",
-              boxShadow: address ? "0 0 16px rgba(220,38,38,0.08)" : "none",
+              background: "rgba(24, 24, 27, 0.9)",
+              border: address ? "1px solid rgba(37, 99, 235, 0.4)" : "1px solid rgba(63, 63, 70, 0.6)",
+              boxShadow: address ? "0 0 16px rgba(37,99,235,0.08)" : "none",
             }}
             onFocus={(e) => {
-              e.target.style.border = "1px solid rgba(220,38,38, 0.5)";
-              e.target.style.boxShadow = "0 0 0 3px rgba(220,38,38,0.1)";
+              e.target.style.border = "1px solid rgba(37, 99, 235, 0.5)";
+              e.target.style.boxShadow = "0 0 0 3px rgba(37,99,235,0.1)";
             }}
             onBlur={(e) => {
-              e.target.style.border = address ? "1px solid rgba(220,38,38,0.4)" : "1px solid rgba(212,212,216,0.6)";
-              e.target.style.boxShadow = address ? "0 0 16px rgba(220,38,38,0.08)" : "none";
+              e.target.style.border = address ? "1px solid rgba(37,99,235,0.4)" : "1px solid rgba(63,63,70,0.6)";
+              e.target.style.boxShadow = address ? "0 0 16px rgba(37,99,235,0.08)" : "none";
             }}
           />
         </motion.div>
@@ -184,8 +184,8 @@ export function LocationForm({ onBack, onContinue }: LocationFormProps) {
           className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 glow-red disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
           style={{
             background: address.trim()
-              ? "linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)"
-              : "#E4E4E7",
+              ? "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)"
+              : "#27272A",
           }}
         >
           <MapPin className="w-4 h-4" />
