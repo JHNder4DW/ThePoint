@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import {
   Zap, CheckCircle2, Clock, Truck, PackageCheck,
   XCircle, Package, ShoppingBag, ThumbsUp, Sparkles,
@@ -114,14 +113,12 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
     <>
       <LoadingState />
       <Analytics />
-      <SpeedInsights />
     </>
   );
   if (order === "not-found") return (
     <>
       <NotFoundState orderId={orderId} />
       <Analytics />
-      <SpeedInsights />
     </>
   );
 
@@ -324,7 +321,6 @@ export function TrackingPage({ orderId }: TrackingPageProps) {
 
       </main>
       <Analytics />
-      <SpeedInsights />
     </div>
   );
 }
